@@ -4,11 +4,12 @@
  */
 package view;
 
+import font.SetFont;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.io.InputStream;
 public class HomePage extends javax.swing.JFrame {
+        private SetFont font = new SetFont();
 
     /**
      * Creates new form HomePage
@@ -17,85 +18,6 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void setFontFuturaDisplay(JComponent jComboComponent, float fontSize) {
-        try {
-            // Sử dụng getResourceAsStream để lấy font từ package "font"
-            InputStream fontStream = getClass().getResourceAsStream("/font/Futura-Display.ttf");
-
-            if (fontStream != null) {
-                Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(fontSize);
-                jComboComponent.setFont(font);
-            } else {
-                System.err.println("Không tìm thấy file font!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void setFontFutura(JComponent jComboComponent, float fontSize) {
-        try {
-            // Sử dụng getResourceAsStream để lấy font từ package "font"
-            InputStream fontStream = getClass().getResourceAsStream("/font/futur.ttf");
-
-            if (fontStream != null) {
-                Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(fontSize);
-                jComboComponent.setFont(font);
-            } else {
-                System.err.println("Không tìm thấy file font!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void setFontRobotoBold(JComponent jComboComponent, float fontSize) {
-        try {
-            // Sử dụng getResourceAsStream để lấy font từ package "font"
-            InputStream fontStream = getClass().getResourceAsStream("/font/Roboto-Bold.ttf");
-
-            if (fontStream != null) {
-                Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(fontSize);
-                jComboComponent.setFont(font);
-            } else {
-                System.err.println("Không tìm thấy file font!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void setFontRoboto(JComponent jComboComponent, float fontSize) {
-        try {
-            // Sử dụng getResourceAsStream để lấy font từ package "font"
-            InputStream fontStream = getClass().getResourceAsStream("/font/Roboto-Regular.ttf");
-
-            if (fontStream != null) {
-                Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(fontSize);
-                jComboComponent.setFont(font);
-            } else {
-                System.err.println("Không tìm thấy file font!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void setFontHagrid(JComponent jComboComponent, float fontSize) {
-        try {
-            // Sử dụng getResourceAsStream để lấy font từ package "font"
-            InputStream fontStream = getClass().getResourceAsStream("/font/Hagrid-Regular.ttf");
-
-            if (fontStream != null) {
-                Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(fontSize);
-                jComboComponent.setFont(font);
-            } else {
-                System.err.println("Không tìm thấy file font!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,39 +27,55 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jp_home = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         btn_Account = new javax.swing.JLabel();
         tf_Find = new javax.swing.JTextField();
-        btn_Find = new javax.swing.JButton();
+        btn_Find1 = new javax.swing.JButton();
         btn_SignInSignUp = new javax.swing.JLabel();
         navigationBar = new javax.swing.JPanel();
         btn_Home1 = new javax.swing.JLabel();
-        cbb_menu = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        homePageIMG = new javax.swing.JLabel();
+        cb_Menu = new javax.swing.JComboBox<>();
+        jp_Content = new javax.swing.JPanel();
+        jp_Home = new javax.swing.JPanel();
+        panelTitle = new javax.swing.JPanel();
+        labelVerse = new javax.swing.JLabel();
+        labelCine = new javax.swing.JLabel();
+        jl_Pic = new javax.swing.JLabel();
+        jl_Where = new javax.swing.JLabel();
+        jl_Welcome = new javax.swing.JLabel();
+        homePageBG = new javax.swing.JLabel();
+        jp_FindMovie = new javax.swing.JPanel();
+        jp_SideBar = new javax.swing.JPanel();
+        jl_Filter = new javax.swing.JLabel();
+        jl_FindTitle = new javax.swing.JLabel();
+        tf_FindTitle = new javax.swing.JTextField();
+        jl_FindMID = new javax.swing.JLabel();
+        tf_FindMID = new javax.swing.JTextField();
+        jl_FindGenre = new javax.swing.JLabel();
+        cb_FindGenre = new javax.swing.JComboBox<>();
+        jl_FindReleaseYear = new javax.swing.JLabel();
+        cb_FindReleaseYear = new javax.swing.JComboBox<>();
+        jl_FindLanguage = new javax.swing.JLabel();
+        cb_FindLanguage = new javax.swing.JComboBox<>();
+        btn_Find2 = new javax.swing.JButton();
+        sp_MovieTable = new javax.swing.JScrollPane();
+        jt_Movie = new javax.swing.JTable();
+        findMovieBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.CardLayout());
-
-        jp_home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         header.setBackground(new java.awt.Color(226, 226, 229));
         header.setPreferredSize(new java.awt.Dimension(1370, 80));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo250x80.png"))); // NOI18N
 
-        btn_Account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/account_circle_16dp_000000_FILL0_wght400_GRAD0_opsz20.png"))); // NOI18N
+        btn_Account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon-account.png"))); // NOI18N
 
         tf_Find.setBackground(new java.awt.Color(102, 23, 26));
         tf_Find.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        setFontRoboto(tf_Find, 14f);
+        font.setFontRoboto(tf_Find, 14f);
         tf_Find.setForeground(new java.awt.Color(226, 226, 229));
         tf_Find.setBorder(null);
         tf_Find.setOpaque(true);
@@ -148,21 +86,22 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        btn_Find.setBackground(new java.awt.Color(103, 26, 23));
-        btn_Find.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        setFontRoboto(btn_Find, 14f);
-        btn_Find.setForeground(new java.awt.Color(226, 226, 229));
-        btn_Find.setText("Find");
-        btn_Find.setBorder(null);
-        btn_Find.setBorderPainted(false);
-        btn_Find.addActionListener(new java.awt.event.ActionListener() {
+        btn_Find1.setBackground(new java.awt.Color(103, 26, 23));
+        btn_Find1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        font.setFontRoboto(btn_Find1, 14f);
+        btn_Find1.setForeground(new java.awt.Color(226, 226, 229));
+        btn_Find1.setText("Find");
+        btn_Find1.setBorder(null);
+        btn_Find1.setBorderPainted(false);
+        btn_Find1.setFocusPainted(false);
+        btn_Find1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_FindActionPerformed(evt);
+                btn_Find1ActionPerformed(evt);
             }
         });
 
         btn_SignInSignUp.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        setFontFutura(btn_SignInSignUp, 20f);
+        font.setFontFutura(btn_SignInSignUp, 20f);
         btn_SignInSignUp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         btn_SignInSignUp.setText("Sign In/Sign Up");
 
@@ -176,7 +115,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(tf_Find, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btn_Find, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Find1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(btn_SignInSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -194,31 +133,36 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(btn_Account, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tf_Find, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_Find, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Find1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_SignInSignUp)))
                 .addGap(24, 24, 24))
         );
 
-        jp_home.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
 
         navigationBar.setBackground(new java.awt.Color(102, 23, 26));
         navigationBar.setPreferredSize(new java.awt.Dimension(1370, 50));
 
         btn_Home1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        setFontFuturaDisplay(btn_Home1, 30f);
+        font.setFontFuturaDisplay(btn_Home1, 30f);
         btn_Home1.setForeground(new java.awt.Color(226, 226, 229));
         btn_Home1.setText("Home");
+        btn_Home1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_Home1MousePressed(evt);
+            }
+        });
 
-        cbb_menu.setBackground(new java.awt.Color(102, 23, 26));
-        cbb_menu.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        setFontFuturaDisplay(cbb_menu, 30f);
-        cbb_menu.setForeground(new java.awt.Color(226, 226, 229));
-        cbb_menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menu", "Sign In/Sign up", "Find Movies", "Movies Management", "Screen Room Management" }));
-        cbb_menu.setBorder(null);
-        cbb_menu.setOpaque(true);
-        cbb_menu.addActionListener(new java.awt.event.ActionListener() {
+        cb_Menu.setBackground(new java.awt.Color(102, 23, 26));
+        cb_Menu.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        font.setFontFuturaDisplay(cb_Menu, 30f);
+        cb_Menu.setForeground(new java.awt.Color(226, 226, 229));
+        cb_Menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menu", "Sign In/Sign up", "Find Movies", "Movies Management", "Screen Room Management" }));
+        cb_Menu.setBorder(null);
+        cb_Menu.setOpaque(true);
+        cb_Menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbb_menuActionPerformed(evt);
+                cb_MenuActionPerformed(evt);
             }
         });
 
@@ -230,7 +174,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(109, 109, 109)
                 .addComponent(btn_Home1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbb_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(859, Short.MAX_VALUE))
         );
         navigationBarLayout.setVerticalGroup(
@@ -241,11 +185,11 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(navigationBarLayout.createSequentialGroup()
                         .addComponent(btn_Home1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 3, Short.MAX_VALUE))
-                    .addComponent(cbb_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(cb_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        cbb_menu.setRenderer(new DefaultListCellRenderer() {
+        cb_Menu.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
@@ -259,79 +203,274 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jp_home.add(navigationBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1370, -1));
+        getContentPane().add(navigationBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1370, -1));
 
-        jPanel1.setOpaque(false);
+        jp_Content.setLayout(new java.awt.CardLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 72)); // NOI18N
-        setFontHagrid(jLabel3, 72f);
-        jLabel3.setForeground(new java.awt.Color(213, 60, 56));
-        jLabel3.setText("Ciné");
+        jp_Home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 72)); // NOI18N
-        setFontHagrid(jLabel2, 72f);
-        jLabel2.setForeground(new java.awt.Color(226, 226, 229));
-        jLabel2.setText("Verse");
+        panelTitle.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        labelVerse.setFont(new java.awt.Font("Segoe UI", 0, 72)); // NOI18N
+        font.setFontHagrid(labelVerse, 72f);
+        labelVerse.setForeground(new java.awt.Color(213, 60, 56));
+        labelVerse.setText("Ciné");
+
+        labelCine.setFont(new java.awt.Font("Segoe UI", 0, 72)); // NOI18N
+        font.setFontHagrid(labelCine, 72f);
+        labelCine.setForeground(new java.awt.Color(226, 226, 229));
+        labelCine.setText("Verse");
+
+        javax.swing.GroupLayout panelTitleLayout = new javax.swing.GroupLayout(panelTitle);
+        panelTitle.setLayout(panelTitleLayout);
+        panelTitleLayout.setHorizontalGroup(
+            panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTitleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(labelVerse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(labelCine)
                 .addContainerGap(92, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        panelTitleLayout.setVerticalGroup(
+            panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)))
+                .addGroup(panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelVerse)
+                    .addComponent(labelCine)))
         );
 
-        jp_home.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 420, 100));
+        jp_Home.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 140, 420, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pic2.png"))); // NOI18N
-        jp_home.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        jl_Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pic2.png"))); // NOI18N
+        jp_Home.add(jl_Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        setFontFutura(jLabel4, 32f);
-        jLabel4.setForeground(new java.awt.Color(226, 226, 229));
-        jLabel4.setText("Where Every Film Finds its Galaxy");
-        jp_home.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, -1, -1));
+        jl_Where.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        font.setFontFutura(jl_Where, 32f);
+        jl_Where.setForeground(new java.awt.Color(226, 226, 229));
+        jl_Where.setText("Where Every Film Finds its Galaxy");
+        jp_Home.add(jl_Where, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        setFontFutura(jLabel5, 32f);
-        jLabel5.setForeground(new java.awt.Color(226, 226, 229));
-        jLabel5.setText("Welcome to the CinéVerse – ");
-        jp_home.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, -1, -1));
+        jl_Welcome.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        font.setFontFutura(jl_Welcome, 32f);
+        jl_Welcome.setForeground(new java.awt.Color(226, 226, 229));
+        jl_Welcome.setText("Welcome to the CinéVerse – ");
+        jp_Home.add(jl_Welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, -1, -1));
 
-        homePageIMG.setFont(new java.awt.Font("Segoe UI", 0, 72)); // NOI18N
-        homePageIMG.setForeground(new java.awt.Color(103, 23, 26));
-        homePageIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cinéverse (2).png"))); // NOI18N
-        jp_home.add(homePageIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
+        homePageBG.setFont(new java.awt.Font("Segoe UI", 0, 72)); // NOI18N
+        homePageBG.setForeground(new java.awt.Color(103, 23, 26));
+        homePageBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/homepageBG.png"))); // NOI18N
+        jp_Home.add(homePageBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
 
-        getContentPane().add(jp_home, "card2");
+        jp_Content.add(jp_Home, "card2");
+
+        jp_FindMovie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_SideBar.setBackground(new java.awt.Color(71, 15, 17));
+        jp_SideBar.setPreferredSize(new java.awt.Dimension(325, 590));
+
+        jl_Filter.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        font.setFontFutura(jl_Filter, 24f);
+        jl_Filter.setForeground(new java.awt.Color(226, 226, 229));
+        jl_Filter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Filter.setText("Filter");
+
+        jl_FindTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        font.setFontRoboto(jl_FindTitle, 18f);
+        jl_FindTitle.setForeground(new java.awt.Color(226, 226, 229));
+        jl_FindTitle.setText("Title");
+
+        tf_FindTitle.setBackground(new java.awt.Color(226, 226, 229));
+        tf_FindTitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        font.setFontRoboto(tf_FindTitle, 14f);
+        tf_FindTitle.setBorder(null);
+        tf_FindTitle.setOpaque(true);
+        tf_FindTitle.setPreferredSize(new java.awt.Dimension(700, 25));
+        tf_FindTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_FindTitleActionPerformed(evt);
+            }
+        });
+
+        jl_FindMID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        font.setFontRoboto(jl_FindMID, 18f);
+        jl_FindMID.setForeground(new java.awt.Color(226, 226, 229));
+        jl_FindMID.setText("Movie ID");
+
+        tf_FindMID.setBackground(new java.awt.Color(226, 226, 229));
+        tf_FindMID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        font.setFontRoboto(tf_FindMID, 14f);
+        tf_FindMID.setBorder(null);
+        tf_FindMID.setOpaque(true);
+        tf_FindMID.setPreferredSize(new java.awt.Dimension(700, 25));
+        tf_FindMID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_FindMIDActionPerformed(evt);
+            }
+        });
+
+        jl_FindGenre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        font.setFontRoboto(jl_FindGenre, 18f);
+        jl_FindGenre.setForeground(new java.awt.Color(226, 226, 229));
+        jl_FindGenre.setText("Genre");
+
+        cb_FindGenre.setBackground(new java.awt.Color(226, 226, 229));
+        cb_FindGenre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        font.setFontRoboto(cb_FindGenre, 14f);
+        cb_FindGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_FindGenre.setPreferredSize(new java.awt.Dimension(72, 25));
+
+        jl_FindReleaseYear.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        font.setFontRoboto(jl_FindReleaseYear, 18f);
+        jl_FindReleaseYear.setForeground(new java.awt.Color(226, 226, 229));
+        jl_FindReleaseYear.setText("Release year");
+
+        cb_FindReleaseYear.setBackground(new java.awt.Color(226, 226, 229));
+        cb_FindReleaseYear.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        font.setFontRoboto(cb_FindReleaseYear, 14f);
+        cb_FindReleaseYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_FindReleaseYear.setPreferredSize(new java.awt.Dimension(72, 25));
+
+        jl_FindLanguage.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        font.setFontRoboto(jl_FindLanguage, 18f);
+        jl_FindLanguage.setForeground(new java.awt.Color(226, 226, 229));
+        jl_FindLanguage.setText("Language");
+
+        cb_FindLanguage.setBackground(new java.awt.Color(226, 226, 229));
+        cb_FindLanguage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        font.setFontRoboto(cb_FindLanguage, 14f);
+        cb_FindLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_FindLanguage.setPreferredSize(new java.awt.Dimension(72, 25));
+
+        btn_Find2.setBackground(new java.awt.Color(102, 23, 26));
+        btn_Find2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        font.setFontFutura(btn_Find2, 20);
+        btn_Find2.setForeground(new java.awt.Color(226, 226, 229));
+        btn_Find2.setText("Find");
+        btn_Find2.setFocusPainted(false);
+        btn_Find2.setPreferredSize(new java.awt.Dimension(150, 40));
+
+        javax.swing.GroupLayout jp_SideBarLayout = new javax.swing.GroupLayout(jp_SideBar);
+        jp_SideBar.setLayout(jp_SideBarLayout);
+        jp_SideBarLayout.setHorizontalGroup(
+            jp_SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SideBarLayout.createSequentialGroup()
+                .addGroup(jp_SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_SideBarLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jp_SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jl_FindLanguage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb_FindLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cb_FindReleaseYear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jl_Filter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jl_FindTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_FindTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jl_FindMID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_FindMID, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jl_FindGenre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb_FindGenre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jl_FindReleaseYear, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))))
+                    .addGroup(jp_SideBarLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(btn_Find2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jp_SideBarLayout.setVerticalGroup(
+            jp_SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SideBarLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jl_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_FindTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_FindTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_FindMID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tf_FindMID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_FindGenre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_FindGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_FindReleaseYear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_FindReleaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_FindLanguage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_FindLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(btn_Find2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+
+        jp_FindMovie.add(jp_SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 640));
+
+        jt_Movie.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jt_Movie.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Movie ID", "Title", "Genre", "Language", "Subtitle", "Duration", "Director", "Cast", "Release Date", "End Date", "Description"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        sp_MovieTable.setViewportView(jt_Movie);
+
+        jp_FindMovie.add(sp_MovieTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 990, 570));
+
+        findMovieBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/findMovieBG.png"))); // NOI18N
+        jp_FindMovie.add(findMovieBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
+
+        jp_Content.add(jp_FindMovie, "card3");
+
+        getContentPane().add(jp_Content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1370, 640));
 
         setSize(new java.awt.Dimension(1380, 776));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cb_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_MenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_MenuActionPerformed
+
+    private void btn_Find1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Find1ActionPerformed
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) jp_Content.getLayout();
+        cardLayout.next(jp_Content);
+    }//GEN-LAST:event_btn_Find1ActionPerformed
+
     private void tf_FindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_FindActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_FindActionPerformed
 
-    private void btn_FindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FindActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_FindActionPerformed
+    private void btn_Home1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Home1MousePressed
+        CardLayout cardLayout = (CardLayout) jp_Content.getLayout();
+        cardLayout.next(jp_Content);
+    }//GEN-LAST:event_btn_Home1MousePressed
 
-    private void cbb_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbb_menuActionPerformed
+    private void tf_FindTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_FindTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbb_menuActionPerformed
+    }//GEN-LAST:event_tf_FindTitleActionPerformed
+
+    private void tf_FindMIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_FindMIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_FindMIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,21 +509,39 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btn_Account;
-    private javax.swing.JButton btn_Find;
+    private javax.swing.JButton btn_Find1;
+    private javax.swing.JButton btn_Find2;
     private javax.swing.JLabel btn_Home1;
     private javax.swing.JLabel btn_SignInSignUp;
-    private javax.swing.JComboBox<String> cbb_menu;
+    private javax.swing.JComboBox<String> cb_FindGenre;
+    private javax.swing.JComboBox<String> cb_FindLanguage;
+    private javax.swing.JComboBox<String> cb_FindReleaseYear;
+    private javax.swing.JComboBox<String> cb_Menu;
+    private javax.swing.JLabel findMovieBG;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel homePageIMG;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jp_home;
+    private javax.swing.JLabel homePageBG;
+    private javax.swing.JLabel jl_Filter;
+    private javax.swing.JLabel jl_FindGenre;
+    private javax.swing.JLabel jl_FindLanguage;
+    private javax.swing.JLabel jl_FindMID;
+    private javax.swing.JLabel jl_FindReleaseYear;
+    private javax.swing.JLabel jl_FindTitle;
+    private javax.swing.JLabel jl_Pic;
+    private javax.swing.JLabel jl_Welcome;
+    private javax.swing.JLabel jl_Where;
+    private javax.swing.JPanel jp_Content;
+    private javax.swing.JPanel jp_FindMovie;
+    private javax.swing.JPanel jp_Home;
+    private javax.swing.JPanel jp_SideBar;
+    private javax.swing.JTable jt_Movie;
+    private javax.swing.JLabel labelCine;
+    private javax.swing.JLabel labelVerse;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel navigationBar;
+    private javax.swing.JPanel panelTitle;
+    private javax.swing.JScrollPane sp_MovieTable;
     private javax.swing.JTextField tf_Find;
+    private javax.swing.JTextField tf_FindMID;
+    private javax.swing.JTextField tf_FindTitle;
     // End of variables declaration//GEN-END:variables
 }
