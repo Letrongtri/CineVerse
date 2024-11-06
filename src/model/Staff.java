@@ -5,6 +5,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class Staff {
     private String name, email;
     private int phone;
     private String roll;
-    private int salary;
+    private float salary;
     private LocalDate enroll_date;
 
     public Staff() {
@@ -32,7 +33,7 @@ public class Staff {
         enroll_date = LocalDate.of(2000, 1, 1);
     }
 
-    public Staff(String sid, LocalDate dob, String name, String email, int phone, String roll, int salary, LocalDate enroll_date) {
+    public Staff(String sid, LocalDate dob, String name, String email, int phone, String roll, float salary, LocalDate enroll_date) {
         this.sid = sid;
         this.dob = dob;
         this.name = name;
@@ -68,7 +69,7 @@ public class Staff {
         return roll;
     }
 
-    public int getSalary() {
+    public float getSalary() {
         return salary;
     }
 
@@ -100,7 +101,7 @@ public class Staff {
         this.roll = roll;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
@@ -110,17 +111,19 @@ public class Staff {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.sid);
-        hash = 67 * hash + Objects.hashCode(this.dob);
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.email);
-        hash = 67 * hash + this.phone;
-        hash = 67 * hash + Objects.hashCode(this.roll);
-        hash = 67 * hash + this.salary;
-        hash = 67 * hash + Objects.hashCode(this.enroll_date);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.sid);
+        hash = 89 * hash + Objects.hashCode(this.dob);
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.email);
+        hash = 89 * hash + this.phone;
+        hash = 89 * hash + Objects.hashCode(this.roll);
+        hash = 89 * hash + Float.floatToIntBits(this.salary);
+        hash = 89 * hash + Objects.hashCode(this.enroll_date);
         return hash;
     }
+
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -163,6 +166,5 @@ public class Staff {
         return "Staff{" + "sid=" + sid + ", dob=" + dob + ", name=" + name + ", email=" + email + ", phone=" + phone + ", roll=" + roll + ", salary=" + salary + ", enroll_date=" + enroll_date + '}';
     }
 
-    
     
 }

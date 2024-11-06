@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ import model.Movie;
  */
 public class MovieManagementPanel extends javax.swing.JPanel {
     private SetFont font;
-    private final MovieManagementDAO movieManagementDAO;
+    private MovieManagementDAO movieManagementDAO;
     
         
     public MovieManagementPanel() {
@@ -39,11 +40,9 @@ public class MovieManagementPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jp_content = new javax.swing.JPanel();
-        jp_infor = new javax.swing.JPanel();
-        jl_movieManagement = new javax.swing.JLabel();
-        sp_movie = new javax.swing.JScrollPane();
-        jt_movie = new javax.swing.JTable();
+        jd_insert = new javax.swing.JDialog();
+        jp_insertInfor = new javax.swing.JPanel();
+        jl_insertMovie = new javax.swing.JLabel();
         jl_title = new javax.swing.JLabel();
         tf_title = new javax.swing.JTextField();
         jl_movieID = new javax.swing.JLabel();
@@ -67,13 +66,479 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         jl_description = new javax.swing.JLabel();
         sp_description = new javax.swing.JScrollPane();
         ta_description = new javax.swing.JTextArea();
+        jp_insertBtn = new javax.swing.JPanel();
+        btn_insertOK = new javax.swing.JButton();
+        btn_insertCancel = new javax.swing.JButton();
+        jd_edit = new javax.swing.JDialog();
+        jp_editInfor = new javax.swing.JPanel();
+        jl_editMovie = new javax.swing.JLabel();
+        jl_title1 = new javax.swing.JLabel();
+        tf_title1 = new javax.swing.JTextField();
+        jl_movieID1 = new javax.swing.JLabel();
+        tf_movieID1 = new javax.swing.JTextField();
+        jl_genre1 = new javax.swing.JLabel();
+        tf_genre1 = new javax.swing.JTextField();
+        jl_language1 = new javax.swing.JLabel();
+        tf_language1 = new javax.swing.JTextField();
+        jl_subtitle1 = new javax.swing.JLabel();
+        tf_subtitle1 = new javax.swing.JTextField();
+        jl_duration1 = new javax.swing.JLabel();
+        tf_duration1 = new javax.swing.JTextField();
+        jl_releaseDate1 = new javax.swing.JLabel();
+        tf_releaseDate1 = new javax.swing.JTextField();
+        jl_endDate1 = new javax.swing.JLabel();
+        tf_endDate1 = new javax.swing.JTextField();
+        jl_director1 = new javax.swing.JLabel();
+        tf_director1 = new javax.swing.JTextField();
+        jl_cast1 = new javax.swing.JLabel();
+        tf_cast1 = new javax.swing.JTextField();
+        jl_description1 = new javax.swing.JLabel();
+        sp_description1 = new javax.swing.JScrollPane();
+        ta_description1 = new javax.swing.JTextArea();
+        jp_editBtn = new javax.swing.JPanel();
+        btn_editOK = new javax.swing.JButton();
+        btn_editCancel = new javax.swing.JButton();
+        jp_content = new javax.swing.JPanel();
+        jp_infor = new javax.swing.JPanel();
+        jl_movieManagement = new javax.swing.JLabel();
+        sp_movie = new javax.swing.JScrollPane();
+        jt_movie = new javax.swing.JTable();
         jp_button = new javax.swing.JPanel();
         btn_insert = new javax.swing.JButton();
         btn_delete = new javax.swing.JButton();
         btn_edit = new javax.swing.JButton();
-        btn_ok = new javax.swing.JButton();
-        btn_cancel = new javax.swing.JButton();
         background = new javax.swing.JLabel();
+
+        jd_insert.setMaximumSize(new java.awt.Dimension(850, 500));
+        jd_insert.setMinimumSize(new java.awt.Dimension(810, 500));
+        jd_insert.setPreferredSize(new java.awt.Dimension(810, 500));
+        jd_insert.setResizable(false);
+        jd_insert.setSize(new java.awt.Dimension(820, 540));
+        jd_insert.setType(java.awt.Window.Type.POPUP);
+        jd_insert.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_insertInfor.setBackground(new java.awt.Color(255, 255, 255));
+        jp_insertInfor.setOpaque(false);
+        jp_insertInfor.setLayout(null);
+
+        jl_insertMovie.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jl_insertMovie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_insertMovie.setText("Insert Movie");
+        jp_insertInfor.add(jl_insertMovie);
+        jl_insertMovie.setBounds(0, 10, 810, 32);
+
+        jl_title.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_title.setText("Title:");
+        jl_title.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_title);
+        jl_title.setBounds(20, 60, 150, 30);
+
+        tf_title.setBackground(new java.awt.Color(226, 226, 229));
+        tf_title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_title.setBorder(null);
+        tf_title.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_title.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_title);
+        tf_title.setBounds(170, 60, 620, 30);
+
+        jl_movieID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_movieID.setText("Movie ID:");
+        jl_movieID.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_movieID);
+        jl_movieID.setBounds(20, 100, 150, 30);
+
+        tf_movieID.setBackground(new java.awt.Color(226, 226, 229));
+        tf_movieID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_movieID.setBorder(null);
+        tf_movieID.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_movieID.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_movieID);
+        tf_movieID.setBounds(170, 100, 220, 30);
+
+        jl_genre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_genre.setText("Genre:");
+        jl_genre.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_genre);
+        jl_genre.setBounds(420, 100, 150, 30);
+
+        tf_genre.setBackground(new java.awt.Color(226, 226, 229));
+        tf_genre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_genre.setBorder(null);
+        tf_genre.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_genre.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_genre);
+        tf_genre.setBounds(570, 100, 220, 30);
+
+        jl_language.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_language.setText("Language:");
+        jl_language.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_language);
+        jl_language.setBounds(20, 140, 150, 30);
+
+        tf_language.setBackground(new java.awt.Color(226, 226, 229));
+        tf_language.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_language.setBorder(null);
+        tf_language.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_language.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_language);
+        tf_language.setBounds(170, 140, 220, 30);
+
+        jl_subtitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_subtitle.setText("Subtitle:");
+        jl_subtitle.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_subtitle);
+        jl_subtitle.setBounds(420, 140, 150, 30);
+
+        tf_subtitle.setBackground(new java.awt.Color(226, 226, 229));
+        tf_subtitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_subtitle.setBorder(null);
+        tf_subtitle.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_subtitle.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_subtitle);
+        tf_subtitle.setBounds(570, 140, 220, 30);
+
+        jl_duration.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_duration.setText("Duration:");
+        jl_duration.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_duration);
+        jl_duration.setBounds(20, 220, 150, 30);
+
+        tf_duration.setBackground(new java.awt.Color(226, 226, 229));
+        tf_duration.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_duration.setBorder(null);
+        tf_duration.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_duration.setPreferredSize(new java.awt.Dimension(100, 30));
+        tf_duration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_durationActionPerformed(evt);
+            }
+        });
+        jp_insertInfor.add(tf_duration);
+        tf_duration.setBounds(170, 220, 220, 30);
+
+        jl_releaseDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_releaseDate.setText("Release date:");
+        jl_releaseDate.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_releaseDate);
+        jl_releaseDate.setBounds(20, 180, 150, 30);
+
+        tf_releaseDate.setBackground(new java.awt.Color(226, 226, 229));
+        tf_releaseDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_releaseDate.setBorder(null);
+        tf_releaseDate.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_releaseDate.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_releaseDate);
+        tf_releaseDate.setBounds(170, 180, 220, 30);
+
+        jl_endDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_endDate.setText("End date:");
+        jl_endDate.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_endDate);
+        jl_endDate.setBounds(420, 180, 150, 30);
+
+        tf_endDate.setBackground(new java.awt.Color(226, 226, 229));
+        tf_endDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_endDate.setBorder(null);
+        tf_endDate.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_endDate.setPreferredSize(new java.awt.Dimension(100, 30));
+        tf_endDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_endDateActionPerformed(evt);
+            }
+        });
+        jp_insertInfor.add(tf_endDate);
+        tf_endDate.setBounds(570, 180, 220, 30);
+
+        jl_director.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_director.setText("Director:");
+        jl_director.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_director);
+        jl_director.setBounds(420, 220, 150, 30);
+
+        tf_director.setBackground(new java.awt.Color(226, 226, 229));
+        tf_director.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_director.setBorder(null);
+        tf_director.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_director.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_director);
+        tf_director.setBounds(570, 220, 220, 30);
+
+        jl_cast.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_cast.setText("Cast:");
+        jl_cast.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_cast);
+        jl_cast.setBounds(20, 260, 150, 30);
+
+        tf_cast.setBackground(new java.awt.Color(226, 226, 229));
+        tf_cast.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_cast.setBorder(null);
+        tf_cast.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_cast.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_insertInfor.add(tf_cast);
+        tf_cast.setBounds(170, 260, 620, 30);
+
+        jl_description.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_description.setText("Description:");
+        jl_description.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_insertInfor.add(jl_description);
+        jl_description.setBounds(20, 300, 150, 30);
+
+        sp_description.setBorder(null);
+
+        ta_description.setBackground(new java.awt.Color(226, 226, 229));
+        ta_description.setColumns(20);
+        ta_description.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ta_description.setRows(5);
+        ta_description.setBorder(null);
+        sp_description.setViewportView(ta_description);
+
+        jp_insertInfor.add(sp_description);
+        sp_description.setBounds(170, 300, 620, 110);
+
+        jd_insert.getContentPane().add(jp_insertInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 430));
+
+        jp_insertBtn.setOpaque(false);
+        jp_insertBtn.setPreferredSize(new java.awt.Dimension(1196, 40));
+        jp_insertBtn.setLayout(null);
+
+        btn_insertOK.setBackground(new java.awt.Color(102, 23, 26));
+        btn_insertOK.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_insertOK.setForeground(new java.awt.Color(226, 226, 229));
+        btn_insertOK.setText("OK");
+        btn_insertOK.setBorder(null);
+        btn_insertOK.setFocusPainted(false);
+        btn_insertOK.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_insertBtn.add(btn_insertOK);
+        btn_insertOK.setBounds(570, 0, 100, 40);
+
+        btn_insertCancel.setBackground(new java.awt.Color(102, 23, 26));
+        btn_insertCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_insertCancel.setForeground(new java.awt.Color(226, 226, 229));
+        btn_insertCancel.setText("Cancel");
+        btn_insertCancel.setBorder(null);
+        btn_insertCancel.setFocusPainted(false);
+        btn_insertCancel.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_insertCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_insertCancelActionPerformed(evt);
+            }
+        });
+        jp_insertBtn.add(btn_insertCancel);
+        btn_insertCancel.setBounds(695, 0, 100, 40);
+
+        jd_insert.getContentPane().add(jp_insertBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 810, -1));
+
+        jd_edit.setMinimumSize(new java.awt.Dimension(810, 500));
+        jd_edit.setPreferredSize(new java.awt.Dimension(810, 500));
+        jd_edit.setSize(new java.awt.Dimension(820, 540));
+        jd_edit.setType(java.awt.Window.Type.POPUP);
+        jd_edit.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_editInfor.setBackground(new java.awt.Color(255, 255, 255));
+        jp_editInfor.setOpaque(false);
+        jp_editInfor.setLayout(null);
+
+        jl_editMovie.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jl_editMovie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_editMovie.setText("Edit Movie");
+        jp_editInfor.add(jl_editMovie);
+        jl_editMovie.setBounds(0, 10, 810, 32);
+
+        jl_title1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_title1.setText("Title:");
+        jl_title1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_title1);
+        jl_title1.setBounds(20, 60, 150, 30);
+
+        tf_title1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_title1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_title1.setBorder(null);
+        tf_title1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_title1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_title1);
+        tf_title1.setBounds(170, 60, 620, 30);
+
+        jl_movieID1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_movieID1.setText("Movie ID:");
+        jl_movieID1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_movieID1);
+        jl_movieID1.setBounds(20, 100, 150, 30);
+
+        tf_movieID1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_movieID1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_movieID1.setBorder(null);
+        tf_movieID1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_movieID1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_movieID1);
+        tf_movieID1.setBounds(170, 100, 220, 30);
+
+        jl_genre1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_genre1.setText("Genre:");
+        jl_genre1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_genre1);
+        jl_genre1.setBounds(420, 100, 150, 30);
+
+        tf_genre1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_genre1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_genre1.setBorder(null);
+        tf_genre1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_genre1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_genre1);
+        tf_genre1.setBounds(570, 100, 220, 30);
+
+        jl_language1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_language1.setText("Language:");
+        jl_language1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_language1);
+        jl_language1.setBounds(20, 140, 150, 30);
+
+        tf_language1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_language1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_language1.setBorder(null);
+        tf_language1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_language1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_language1);
+        tf_language1.setBounds(170, 140, 220, 30);
+
+        jl_subtitle1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_subtitle1.setText("Subtitle:");
+        jl_subtitle1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_subtitle1);
+        jl_subtitle1.setBounds(420, 140, 150, 30);
+
+        tf_subtitle1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_subtitle1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_subtitle1.setBorder(null);
+        tf_subtitle1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_subtitle1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_subtitle1);
+        tf_subtitle1.setBounds(570, 140, 220, 30);
+
+        jl_duration1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_duration1.setText("Duration:");
+        jl_duration1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_duration1);
+        jl_duration1.setBounds(20, 220, 150, 30);
+
+        tf_duration1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_duration1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_duration1.setBorder(null);
+        tf_duration1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_duration1.setPreferredSize(new java.awt.Dimension(100, 30));
+        tf_duration1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_duration1ActionPerformed(evt);
+            }
+        });
+        jp_editInfor.add(tf_duration1);
+        tf_duration1.setBounds(170, 220, 220, 30);
+
+        jl_releaseDate1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_releaseDate1.setText("Release date:");
+        jl_releaseDate1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_releaseDate1);
+        jl_releaseDate1.setBounds(20, 180, 150, 30);
+
+        tf_releaseDate1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_releaseDate1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_releaseDate1.setBorder(null);
+        tf_releaseDate1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_releaseDate1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_releaseDate1);
+        tf_releaseDate1.setBounds(170, 180, 220, 30);
+
+        jl_endDate1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_endDate1.setText("End date:");
+        jl_endDate1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_endDate1);
+        jl_endDate1.setBounds(420, 180, 150, 30);
+
+        tf_endDate1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_endDate1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_endDate1.setBorder(null);
+        tf_endDate1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_endDate1.setPreferredSize(new java.awt.Dimension(100, 30));
+        tf_endDate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_endDate1ActionPerformed(evt);
+            }
+        });
+        jp_editInfor.add(tf_endDate1);
+        tf_endDate1.setBounds(570, 180, 220, 30);
+
+        jl_director1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_director1.setText("Director:");
+        jl_director1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_director1);
+        jl_director1.setBounds(420, 220, 150, 30);
+
+        tf_director1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_director1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_director1.setBorder(null);
+        tf_director1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_director1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_director1);
+        tf_director1.setBounds(570, 220, 220, 30);
+
+        jl_cast1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_cast1.setText("Cast:");
+        jl_cast1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_cast1);
+        jl_cast1.setBounds(20, 260, 150, 30);
+
+        tf_cast1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_cast1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_cast1.setBorder(null);
+        tf_cast1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_cast1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_editInfor.add(tf_cast1);
+        tf_cast1.setBounds(170, 260, 620, 30);
+
+        jl_description1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_description1.setText("Description:");
+        jl_description1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_editInfor.add(jl_description1);
+        jl_description1.setBounds(20, 300, 150, 30);
+
+        sp_description1.setBorder(null);
+
+        ta_description1.setBackground(new java.awt.Color(226, 226, 229));
+        ta_description1.setColumns(20);
+        ta_description1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ta_description1.setRows(5);
+        ta_description1.setBorder(null);
+        sp_description1.setViewportView(ta_description1);
+
+        jp_editInfor.add(sp_description1);
+        sp_description1.setBounds(170, 300, 620, 110);
+
+        jd_edit.getContentPane().add(jp_editInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 430));
+
+        jp_editBtn.setOpaque(false);
+        jp_editBtn.setPreferredSize(new java.awt.Dimension(1196, 40));
+        jp_editBtn.setLayout(null);
+
+        btn_editOK.setBackground(new java.awt.Color(102, 23, 26));
+        btn_editOK.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_editOK.setForeground(new java.awt.Color(226, 226, 229));
+        btn_editOK.setText("OK");
+        btn_editOK.setBorder(null);
+        btn_editOK.setFocusPainted(false);
+        btn_editOK.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_editBtn.add(btn_editOK);
+        btn_editOK.setBounds(570, 0, 100, 40);
+
+        btn_editCancel.setBackground(new java.awt.Color(102, 23, 26));
+        btn_editCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_editCancel.setForeground(new java.awt.Color(226, 226, 229));
+        btn_editCancel.setText("Cancel");
+        btn_editCancel.setBorder(null);
+        btn_editCancel.setFocusPainted(false);
+        btn_editCancel.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_editBtn.add(btn_editCancel);
+        btn_editCancel.setBounds(690, 0, 100, 40);
+
+        jd_edit.getContentPane().add(jp_editBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 810, -1));
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -127,193 +592,13 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         sp_movie.setViewportView(jt_movie);
 
         jp_infor.add(sp_movie);
-        sp_movie.setBounds(20, 40, 1150, 260);
-
-        jl_title.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_title, 18f);
-        jl_title.setText("Title:");
-        jl_title.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_title);
-        jl_title.setBounds(20, 310, 150, 30);
-
-        tf_title.setBackground(new java.awt.Color(226, 226, 229));
-        tf_title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_title, 14f);
-        tf_title.setBorder(null);
-        tf_title.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_title.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_title);
-        tf_title.setBounds(170, 310, 610, 30);
-
-        jl_movieID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_movieID, 18f);
-        jl_movieID.setText("Movie ID:");
-        jl_movieID.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_movieID);
-        jl_movieID.setBounds(800, 310, 150, 30);
-
-        tf_movieID.setBackground(new java.awt.Color(226, 226, 229));
-        tf_movieID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_movieID, 14f);
-        tf_movieID.setBorder(null);
-        tf_movieID.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_movieID.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_movieID);
-        tf_movieID.setBounds(950, 310, 220, 30);
-
-        jl_genre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_genre, 18f);
-        jl_genre.setText("Genre:");
-        jl_genre.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_genre);
-        jl_genre.setBounds(20, 350, 150, 30);
-
-        tf_genre.setBackground(new java.awt.Color(226, 226, 229));
-        tf_genre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_genre, 14f);
-        tf_genre.setBorder(null);
-        tf_genre.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_genre.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_genre);
-        tf_genre.setBounds(170, 350, 220, 30);
-
-        jl_language.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_language, 18f);
-        jl_language.setText("Language:");
-        jl_language.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_language);
-        jl_language.setBounds(410, 350, 150, 30);
-
-        tf_language.setBackground(new java.awt.Color(226, 226, 229));
-        tf_language.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_language, 14f);
-        tf_language.setBorder(null);
-        tf_language.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_language.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_language);
-        tf_language.setBounds(560, 350, 220, 30);
-
-        jl_subtitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_subtitle, 18f);
-        jl_subtitle.setText("Subtitle:");
-        jl_subtitle.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_subtitle);
-        jl_subtitle.setBounds(800, 350, 150, 30);
-
-        tf_subtitle.setBackground(new java.awt.Color(226, 226, 229));
-        tf_subtitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_subtitle, 14f);
-        tf_subtitle.setBorder(null);
-        tf_subtitle.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_subtitle.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_subtitle);
-        tf_subtitle.setBounds(950, 350, 220, 30);
-
-        jl_duration.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_duration, 18f);
-        jl_duration.setText("Duration:");
-        jl_duration.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_duration);
-        jl_duration.setBounds(20, 390, 150, 30);
-
-        tf_duration.setBackground(new java.awt.Color(226, 226, 229));
-        tf_duration.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_duration, 14f);
-        tf_duration.setBorder(null);
-        tf_duration.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_duration.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_duration);
-        tf_duration.setBounds(170, 390, 220, 30);
-
-        jl_releaseDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_releaseDate, 18f);
-        jl_releaseDate.setText("Release date:");
-        jl_releaseDate.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_releaseDate);
-        jl_releaseDate.setBounds(410, 390, 150, 30);
-
-        tf_releaseDate.setBackground(new java.awt.Color(226, 226, 229));
-        tf_releaseDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_releaseDate, 14f);
-        tf_releaseDate.setBorder(null);
-        tf_releaseDate.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_releaseDate.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_releaseDate);
-        tf_releaseDate.setBounds(560, 390, 220, 30);
-
-        jl_endDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_endDate, 18f);
-        jl_endDate.setText("End date:");
-        jl_endDate.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_endDate);
-        jl_endDate.setBounds(800, 390, 150, 30);
-
-        tf_endDate.setBackground(new java.awt.Color(226, 226, 229));
-        tf_endDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_endDate, 14f);
-        tf_endDate.setBorder(null);
-        tf_endDate.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_endDate.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_endDate);
-        tf_endDate.setBounds(950, 390, 220, 30);
-
-        jl_director.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_director, 18f);
-        jl_director.setText("Director:");
-        jl_director.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_director);
-        jl_director.setBounds(20, 430, 150, 30);
-
-        tf_director.setBackground(new java.awt.Color(226, 226, 229));
-        tf_director.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_director, 14f);
-        tf_director.setBorder(null);
-        tf_director.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_director.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_director);
-        tf_director.setBounds(170, 430, 220, 30);
-
-        jl_cast.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_cast, 18f);
-        jl_cast.setText("Cast:");
-        jl_cast.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_cast);
-        jl_cast.setBounds(410, 430, 150, 30);
-
-        tf_cast.setBackground(new java.awt.Color(226, 226, 229));
-        tf_cast.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_cast, 14f);
-        tf_cast.setBorder(null);
-        tf_cast.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_cast.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_cast);
-        tf_cast.setBounds(560, 430, 610, 30);
-
-        jl_description.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_description, 18f);
-        jl_description.setText("Description:");
-        jl_description.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_description);
-        jl_description.setBounds(20, 470, 150, 30);
-
-        sp_description.setBorder(null);
-
-        ta_description.setBackground(new java.awt.Color(226, 226, 229));
-        ta_description.setColumns(20);
-        ta_description.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(ta_description, 14f);
-        ta_description.setRows(5);
-        ta_description.setBorder(null);
-        sp_description.setViewportView(ta_description);
-
-        jp_infor.add(sp_description);
-        sp_description.setBounds(170, 466, 1000, 110);
+        sp_movie.setBounds(20, 40, 1150, 550);
 
         jp_content.add(jp_infor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 590));
 
         jp_button.setOpaque(false);
         jp_button.setPreferredSize(new java.awt.Dimension(1196, 40));
-        jp_button.setLayout(new java.awt.GridLayout(1, 5, 70, 30));
+        jp_button.setLayout(null);
 
         btn_insert.setBackground(new java.awt.Color(102, 23, 26));
         btn_insert.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -322,8 +607,10 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_insert.setText("Insert");
         btn_insert.setBorder(null);
         btn_insert.setFocusPainted(false);
-        btn_insert.setPreferredSize(new java.awt.Dimension(200, 40));
+        btn_insert.setMaximumSize(new java.awt.Dimension(1000, 500));
+        btn_insert.setPreferredSize(new java.awt.Dimension(150, 40));
         jp_button.add(btn_insert);
+        btn_insert.setBounds(0, 0, 150, 40);
 
         btn_delete.setBackground(new java.awt.Color(102, 23, 26));
         btn_delete.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -332,8 +619,9 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_delete.setText("Delete");
         btn_delete.setBorder(null);
         btn_delete.setFocusPainted(false);
-        btn_delete.setPreferredSize(new java.awt.Dimension(200, 40));
+        btn_delete.setPreferredSize(new java.awt.Dimension(150, 40));
         jp_button.add(btn_delete);
+        btn_delete.setBounds(210, 0, 150, 40);
 
         btn_edit.setBackground(new java.awt.Color(102, 23, 26));
         btn_edit.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -342,30 +630,11 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_edit.setText("Edit");
         btn_edit.setBorder(null);
         btn_edit.setFocusPainted(false);
-        btn_edit.setPreferredSize(new java.awt.Dimension(200, 40));
+        btn_edit.setPreferredSize(new java.awt.Dimension(150, 40));
         jp_button.add(btn_edit);
+        btn_edit.setBounds(420, 0, 150, 40);
 
-        btn_ok.setBackground(new java.awt.Color(102, 23, 26));
-        btn_ok.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        font.setFontRobotoBold(btn_ok, 20f);
-        btn_ok.setForeground(new java.awt.Color(226, 226, 229));
-        btn_ok.setText("OK");
-        btn_ok.setBorder(null);
-        btn_ok.setFocusPainted(false);
-        btn_ok.setPreferredSize(new java.awt.Dimension(200, 40));
-        jp_button.add(btn_ok);
-
-        btn_cancel.setBackground(new java.awt.Color(102, 23, 26));
-        btn_cancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        font.setFontRobotoBold(btn_cancel, 20f);
-        btn_cancel.setForeground(new java.awt.Color(226, 226, 229));
-        btn_cancel.setText("Cancel");
-        btn_cancel.setBorder(null);
-        btn_cancel.setFocusPainted(false);
-        btn_cancel.setPreferredSize(new java.awt.Dimension(150, 40));
-        jp_button.add(btn_cancel);
-
-        jp_content.add(jp_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 597, 1140, -1));
+        jp_content.add(jp_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 600, 560, -1));
 
         add(jp_content, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 19, -1, -1));
 
@@ -374,43 +643,96 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tf_endDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_endDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_endDateActionPerformed
+
+    private void tf_durationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_durationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_durationActionPerformed
+
+    private void tf_duration1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_duration1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_duration1ActionPerformed
+
+    private void tf_endDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_endDate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_endDate1ActionPerformed
+
+    private void btn_insertCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_insertCancelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton btn_cancel;
     private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_edit;
+    private javax.swing.JButton btn_editCancel;
+    private javax.swing.JButton btn_editOK;
     private javax.swing.JButton btn_insert;
-    private javax.swing.JButton btn_ok;
+    private javax.swing.JButton btn_insertCancel;
+    private javax.swing.JButton btn_insertOK;
+    private javax.swing.JDialog jd_edit;
+    private javax.swing.JDialog jd_insert;
     private javax.swing.JLabel jl_cast;
+    private javax.swing.JLabel jl_cast1;
     private javax.swing.JLabel jl_description;
+    private javax.swing.JLabel jl_description1;
     private javax.swing.JLabel jl_director;
+    private javax.swing.JLabel jl_director1;
     private javax.swing.JLabel jl_duration;
+    private javax.swing.JLabel jl_duration1;
+    private javax.swing.JLabel jl_editMovie;
     private javax.swing.JLabel jl_endDate;
+    private javax.swing.JLabel jl_endDate1;
     private javax.swing.JLabel jl_genre;
+    private javax.swing.JLabel jl_genre1;
+    private javax.swing.JLabel jl_insertMovie;
     private javax.swing.JLabel jl_language;
+    private javax.swing.JLabel jl_language1;
     private javax.swing.JLabel jl_movieID;
+    private javax.swing.JLabel jl_movieID1;
     private javax.swing.JLabel jl_movieManagement;
     private javax.swing.JLabel jl_releaseDate;
+    private javax.swing.JLabel jl_releaseDate1;
     private javax.swing.JLabel jl_subtitle;
+    private javax.swing.JLabel jl_subtitle1;
     private javax.swing.JLabel jl_title;
+    private javax.swing.JLabel jl_title1;
     private javax.swing.JPanel jp_button;
     private javax.swing.JPanel jp_content;
+    private javax.swing.JPanel jp_editBtn;
+    private javax.swing.JPanel jp_editInfor;
     private javax.swing.JPanel jp_infor;
+    private javax.swing.JPanel jp_insertBtn;
+    private javax.swing.JPanel jp_insertInfor;
     private javax.swing.JTable jt_movie;
     private javax.swing.JScrollPane sp_description;
+    private javax.swing.JScrollPane sp_description1;
     private javax.swing.JScrollPane sp_movie;
     private javax.swing.JTextArea ta_description;
+    private javax.swing.JTextArea ta_description1;
     private javax.swing.JTextField tf_cast;
+    private javax.swing.JTextField tf_cast1;
     private javax.swing.JTextField tf_director;
+    private javax.swing.JTextField tf_director1;
     private javax.swing.JTextField tf_duration;
+    private javax.swing.JTextField tf_duration1;
     private javax.swing.JTextField tf_endDate;
+    private javax.swing.JTextField tf_endDate1;
     private javax.swing.JTextField tf_genre;
+    private javax.swing.JTextField tf_genre1;
     private javax.swing.JTextField tf_language;
+    private javax.swing.JTextField tf_language1;
     private javax.swing.JTextField tf_movieID;
+    private javax.swing.JTextField tf_movieID1;
     private javax.swing.JTextField tf_releaseDate;
+    private javax.swing.JTextField tf_releaseDate1;
     private javax.swing.JTextField tf_subtitle;
+    private javax.swing.JTextField tf_subtitle1;
     private javax.swing.JTextField tf_title;
+    private javax.swing.JTextField tf_title1;
     // End of variables declaration//GEN-END:variables
 
 //    public void setMovies(List<Movie> movies){
@@ -446,30 +768,32 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_insert.addActionListener(ac);
         btn_edit.addActionListener(ac);
         btn_delete.addActionListener(ac);
-        btn_ok.addActionListener(ac);
-        btn_cancel.addActionListener(ac);
+        btn_insertOK.addActionListener(ac);
+        btn_insertCancel.addActionListener(ac);
+        btn_editOK.addActionListener(ac);
+        btn_editCancel.addActionListener(ac);
     }
     
-    public void insertMovie() {
-        refreshMovieInfor();
+    public void showInsertMovieDialog() {
+        jd_insert.setVisible(true);
     }
 
-    public void editMovie() {
+    public void showEditMovieDialog() {
         Movie movie = getSelectedRow();
         
-        tf_movieID.setText(movie.getMid());
-        tf_title.setText(movie.getTitle());
-        tf_genre.setText(movie.getGenre());
-        tf_language.setText(movie.getLanguage());
-        tf_subtitle.setText(movie.getSubtitle());
-        tf_duration.setText(movie.getDuration() + "");
+        tf_movieID1.setText(movie.getMid());
+        tf_title1.setText(movie.getTitle());
+        tf_genre1.setText(movie.getGenre());
+        tf_language1.setText(movie.getLanguage());
+        tf_subtitle1.setText(movie.getSubtitle());
+        tf_duration1.setText(movie.getDuration() + "");
+        tf_releaseDate1.setText(movie.getRelease_date() + "");
+        tf_endDate1.setText(movie.getEnd_date() + "");
+        tf_director1.setText(movie.getDirector());
+        tf_cast1.setText(movie.getCast());
+        ta_description1.setText(movie.getDescription());
         
-        tf_releaseDate.setText(movie.getRelease_date() + "");
-        tf_endDate.setText(movie.getEnd_date() + "");
-        
-        tf_director.setText(movie.getDirector());
-        tf_cast.setText(movie.getCast());
-        ta_description.setText(movie.getDescription());
+        jd_edit.setVisible(true);
     }
 
     public void deleteMovie() {
@@ -512,20 +836,6 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         }
     }
 
-    public void refreshMovieInfor() {
-        tf_title.setText("");
-        tf_movieID.setText("");
-        tf_genre.setText("");
-        tf_language.setText("");
-        tf_subtitle.setText("");
-        tf_duration.setText("");
-        tf_releaseDate.setText("");
-        tf_endDate.setText("");
-        tf_director.setText("");
-        tf_cast.setText("");
-        ta_description.setText("");
-    }
-
     public JTable getJt_movie() {
         return jt_movie;
     }
@@ -554,7 +864,76 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         
         return new Movie(movieID, title, genre, language, subtitle, duration, director, cast, releaseDate, endDate, description);
     }
+
+    public JButton getBtn_delete() {
+        return btn_delete;
+    }
+
+    public void setBtn_delete(JButton btn_delete) {
+        this.btn_delete = btn_delete;
+    }
+
+    public JButton getBtn_edit() {
+        return btn_edit;
+    }
+
+    public void setBtn_edit(JButton btn_edit) {
+        this.btn_edit = btn_edit;
+    }
+
+    public JButton getBtn_insert() {
+        return btn_insert;
+    }
+
+    public void setBtn_insert(JButton btn_insert) {
+        this.btn_insert = btn_insert;
+    }
+
+    public JButton getBtn_insertCancel() {
+        return btn_insertCancel;
+    }
+
+    public void setBtn_insertCancel(JButton btn_insertCancel) {
+        this.btn_insertCancel = btn_insertCancel;
+    }
+
+    public JButton getBtn_insertOK() {
+        return btn_insertOK;
+    }
+
+    public void setBtn_insertOK(JButton btn_insertOK) {
+        this.btn_insertOK = btn_insertOK;
+    }
+
+    public JButton getBtn_editCancel() {
+        return btn_editCancel;
+    }
+
+    public void setBtn_editCancel(JButton btn_editCancel) {
+        this.btn_editCancel = btn_editCancel;
+    }
+
+    public JButton getBtn_editOK() {
+        return btn_editCancel;
+    }
+
+    public void setBtn_editOK(JButton btn_editOK) {
+        this.btn_editCancel = btn_editOK;
+    }
     
     
+    public void cancelInsert() {
+        int confirm = JOptionPane.showConfirmDialog(jd_insert, "Do you want to cancel?", "Cancel", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (confirm == JOptionPane.YES_OPTION){
+            jd_insert.setVisible(false);
+        }
+    }
+    
+    public void cancelEdit() {
+        int confirm = JOptionPane.showConfirmDialog(jd_edit, "Do you want to cancel?", "Cancel", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (confirm == JOptionPane.YES_OPTION){
+            jd_edit.setVisible(false);
+        }
+    }
     
 }

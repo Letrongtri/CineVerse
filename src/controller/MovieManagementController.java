@@ -15,12 +15,6 @@ import view.MovieManagementPanel;
  */
 public class MovieManagementController implements ActionListener{
     private MovieManagementPanel movieManagementPanel;
-//    private MainFrame mainFrame;
-
-//    public MovieManagementController(MainFrame mainFrame) {
-//        this.mainFrame = mainFrame;
-//        this.mainFrame.getMovieManagementPanel().setActionListener(this);
-//    }
     
     public MovieManagementController(MovieManagementPanel movieManagementPanel) {
         this.movieManagementPanel = movieManagementPanel;
@@ -33,19 +27,29 @@ public class MovieManagementController implements ActionListener{
         
         switch (btn) {
             case "Insert":
-                movieManagementPanel.insertMovie();
+                movieManagementPanel.showInsertMovieDialog();
                 break;
             case "Edit":
-                movieManagementPanel.editMovie();
+                movieManagementPanel.showEditMovieDialog();
                 break;
             case "Delete":
                 movieManagementPanel.deleteMovie();
                 break;
             case "OK": 
-                movieManagementPanel.saveMovie();
+                if (e.getSource().equals(movieManagementPanel.getBtn_insertOK())){
+//                    movieManagementPanel.insertMovie();
+                }
+                else if (e.getSource().equals(movieManagementPanel.getBtn_editOK())){
+                    
+                }
                 break;
             case "Cancel":
-                movieManagementPanel.refreshMovieInfor();
+                if (e.getSource().equals(movieManagementPanel.getBtn_insertCancel())){
+                    movieManagementPanel.cancelInsert();
+                }
+                else if (e.getSource().equals(movieManagementPanel.getBtn_editCancel())){
+                    movieManagementPanel.cancelEdit();
+                }
                 break;
             default:
                 break;
