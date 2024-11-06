@@ -11,24 +11,17 @@ import java.util.Objects;
  * @author ADMIN
  */
 public class Customer {
-    private Person person;
     private String cid;
     private String password;
 
     public Customer() {
-        person = new Person();
         cid = new String();
         password = new String();
     }
 
-    public Customer(Person person, String cid, String password) {
-        this.person = person;
+    public Customer(String cid, String password) {
         this.cid = cid;
         this.password = password;
-    }
-
-    public Person getPerson() {
-        return person;
     }
 
     public String getCid() {
@@ -37,10 +30,6 @@ public class Customer {
 
     public String getPassword() {
         return password;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
     }
 
     public void setCid(String cid) {
@@ -54,7 +43,6 @@ public class Customer {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.person);
         hash = 31 * hash + Objects.hashCode(this.cid);
         hash = 31 * hash + Objects.hashCode(this.password);
         return hash;
@@ -75,17 +63,12 @@ public class Customer {
         if (!Objects.equals(this.cid, other.cid)) {
             return false;
         }
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
-        return Objects.equals(this.person, other.person);
+        return Objects.equals(this.password, other.password);
     }
 
     @Override
     public String toString() {
-        return "Customer{" + "person=" + person + ", cid=" + cid + ", password=" + password + '}';
+        return "Customer{" + "cid=" + cid + ", password=" + password + '}';
     }
-    
-    
-    
+
 }
