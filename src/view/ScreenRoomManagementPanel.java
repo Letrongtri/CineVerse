@@ -4,7 +4,12 @@
  */
 package view;
 
+import DatabaseConnection.ScreenRoomManagementDAO;
+import controller.ScreenRoomController;
 import font.SetFont;
+import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+import model.ScreenRoom;
 
 /**
  *
@@ -12,12 +17,16 @@ import font.SetFont;
  */
 public class ScreenRoomManagementPanel extends javax.swing.JPanel {
     private SetFont font;
+    private ScreenRoomManagementDAO screenRoomManagementDAO;
     /**
      * Creates new form ScreenRoomManagementPanel
      */
     public ScreenRoomManagementPanel() {
         font = new SetFont();
+        screenRoomManagementDAO = new ScreenRoomManagementDAO();
         initComponents();
+        ScreenRoomController screenRoomController = new ScreenRoomController(this);
+        setData();
     }
 
     /**
@@ -29,34 +38,362 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_insert = new javax.swing.JDialog();
+        jp_infor1 = new javax.swing.JPanel();
+        jl_screenRoomManagement1 = new javax.swing.JLabel();
+        jl_roomID1 = new javax.swing.JLabel();
+        tf_roomID1 = new javax.swing.JTextField();
+        jl_roomName1 = new javax.swing.JLabel();
+        tf_roomName1 = new javax.swing.JTextField();
+        jl_screenType1 = new javax.swing.JLabel();
+        tf_screenType1 = new javax.swing.JTextField();
+        jl_equipment1 = new javax.swing.JLabel();
+        tf_equipment1 = new javax.swing.JTextField();
+        jl_note1 = new javax.swing.JLabel();
+        sp_note1 = new javax.swing.JScrollPane();
+        ta_note1 = new javax.swing.JTextArea();
+        jl_status1 = new javax.swing.JLabel();
+        rb_available1 = new javax.swing.JRadioButton();
+        rb_notAvailable1 = new javax.swing.JRadioButton();
+        jp_insertBtn = new javax.swing.JPanel();
+        btn_insertOK = new javax.swing.JButton();
+        btn_insertCancel = new javax.swing.JButton();
+        jd_edit = new javax.swing.JDialog();
+        jp_infor2 = new javax.swing.JPanel();
+        jl_screenRoomManagement2 = new javax.swing.JLabel();
+        jl_roomID2 = new javax.swing.JLabel();
+        tf_roomID2 = new javax.swing.JTextField();
+        jl_roomName2 = new javax.swing.JLabel();
+        tf_roomName2 = new javax.swing.JTextField();
+        jl_screenType2 = new javax.swing.JLabel();
+        tf_screenType2 = new javax.swing.JTextField();
+        jl_equipment2 = new javax.swing.JLabel();
+        tf_equipment2 = new javax.swing.JTextField();
+        jl_note2 = new javax.swing.JLabel();
+        sp_note2 = new javax.swing.JScrollPane();
+        ta_note2 = new javax.swing.JTextArea();
+        jl_status2 = new javax.swing.JLabel();
+        rb_available2 = new javax.swing.JRadioButton();
+        rb_notAvailable2 = new javax.swing.JRadioButton();
+        jp_editBtn = new javax.swing.JPanel();
+        btn_editOK = new javax.swing.JButton();
+        btn_editCancel = new javax.swing.JButton();
+        bg_insertStatus = new javax.swing.ButtonGroup();
+        bg_editStatus = new javax.swing.ButtonGroup();
         jp_content = new javax.swing.JPanel();
         jp_infor = new javax.swing.JPanel();
         jl_screenRoomManagement = new javax.swing.JLabel();
         sp_screenRoom = new javax.swing.JScrollPane();
         jt_screenRoom = new javax.swing.JTable();
-        jl_roomID = new javax.swing.JLabel();
-        tf_roomID = new javax.swing.JTextField();
-        jl_roomName = new javax.swing.JLabel();
-        tf_roomName = new javax.swing.JTextField();
-        jl_totalSeats = new javax.swing.JLabel();
-        tf_totalSeats = new javax.swing.JTextField();
-        jl_screenType = new javax.swing.JLabel();
-        tf_screenType = new javax.swing.JTextField();
-        jl_equipment = new javax.swing.JLabel();
-        tf_equipment = new javax.swing.JTextField();
-        jl_note = new javax.swing.JLabel();
-        sp_note = new javax.swing.JScrollPane();
-        ta_note = new javax.swing.JTextArea();
-        jl_status = new javax.swing.JLabel();
-        rb_available = new javax.swing.JRadioButton();
-        rb_notAvailable = new javax.swing.JRadioButton();
-        jpButton = new javax.swing.JPanel();
+        jp_button = new javax.swing.JPanel();
         btn_insert = new javax.swing.JButton();
         btn_delete = new javax.swing.JButton();
         btn_edit = new javax.swing.JButton();
-        btn_ok = new javax.swing.JButton();
-        btn_cancel = new javax.swing.JButton();
         background = new javax.swing.JLabel();
+
+        jd_insert.setSize(new java.awt.Dimension(820, 390));
+        jd_insert.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_infor1.setBackground(new java.awt.Color(255, 255, 255));
+        jp_infor1.setOpaque(false);
+        jp_infor1.setPreferredSize(new java.awt.Dimension(810, 500));
+        jp_infor1.setLayout(null);
+
+        jl_screenRoomManagement1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jl_screenRoomManagement1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_screenRoomManagement1.setText("Insert Screen Room");
+        jp_infor1.add(jl_screenRoomManagement1);
+        jl_screenRoomManagement1.setBounds(0, 0, 810, 32);
+
+        jl_roomID1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_roomID1.setText("Room ID:");
+        jl_roomID1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor1.add(jl_roomID1);
+        jl_roomID1.setBounds(30, 60, 150, 30);
+
+        tf_roomID1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_roomID1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_roomID1.setBorder(null);
+        tf_roomID1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_roomID1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_infor1.add(tf_roomID1);
+        tf_roomID1.setBounds(180, 60, 220, 30);
+
+        jl_roomName1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_roomName1.setText("Room name:");
+        jl_roomName1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor1.add(jl_roomName1);
+        jl_roomName1.setBounds(420, 60, 150, 30);
+
+        tf_roomName1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_roomName1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_roomName1.setBorder(null);
+        tf_roomName1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_roomName1.setPreferredSize(new java.awt.Dimension(100, 30));
+        tf_roomName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_roomName1ActionPerformed(evt);
+            }
+        });
+        jp_infor1.add(tf_roomName1);
+        tf_roomName1.setBounds(570, 60, 220, 30);
+
+        jl_screenType1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_screenType1.setText("Screen Type:");
+        jl_screenType1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor1.add(jl_screenType1);
+        jl_screenType1.setBounds(30, 100, 150, 30);
+
+        tf_screenType1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_screenType1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_screenType1.setBorder(null);
+        tf_screenType1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_screenType1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_infor1.add(tf_screenType1);
+        tf_screenType1.setBounds(180, 100, 220, 30);
+
+        jl_equipment1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_equipment1.setText("Equipment:");
+        jl_equipment1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor1.add(jl_equipment1);
+        jl_equipment1.setBounds(420, 100, 150, 30);
+
+        tf_equipment1.setBackground(new java.awt.Color(226, 226, 229));
+        tf_equipment1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_equipment1.setBorder(null);
+        tf_equipment1.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_equipment1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_infor1.add(tf_equipment1);
+        tf_equipment1.setBounds(570, 100, 220, 30);
+
+        jl_note1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_note1.setText("Note:");
+        jl_note1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor1.add(jl_note1);
+        jl_note1.setBounds(30, 180, 150, 30);
+
+        sp_note1.setBorder(null);
+
+        ta_note1.setBackground(new java.awt.Color(226, 226, 229));
+        ta_note1.setColumns(20);
+        ta_note1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ta_note1.setRows(5);
+        ta_note1.setBorder(null);
+        ta_note1.setPreferredSize(new java.awt.Dimension(260, 80));
+        sp_note1.setViewportView(ta_note1);
+
+        jp_infor1.add(sp_note1);
+        sp_note1.setBounds(180, 180, 610, 110);
+
+        jl_status1.setBackground(new java.awt.Color(255, 255, 255));
+        jl_status1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_status1.setText("Status:");
+        jl_status1.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor1.add(jl_status1);
+        jl_status1.setBounds(30, 140, 150, 30);
+
+        rb_available1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rb_available1.setText("Available");
+        rb_available1.setBorder(null);
+        rb_available1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_available1ActionPerformed(evt);
+            }
+        });
+        jp_infor1.add(rb_available1);
+        rb_available1.setBounds(180, 140, 100, 30);
+
+        rb_notAvailable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rb_notAvailable1.setText("Not Available");
+        rb_notAvailable1.setBorder(null);
+        rb_notAvailable1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_notAvailable1ActionPerformed(evt);
+            }
+        });
+        jp_infor1.add(rb_notAvailable1);
+        rb_notAvailable1.setBounds(270, 140, 130, 30);
+
+        jd_insert.getContentPane().add(jp_infor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 280));
+
+        jp_insertBtn.setOpaque(false);
+        jp_insertBtn.setPreferredSize(new java.awt.Dimension(1196, 40));
+        jp_insertBtn.setLayout(null);
+
+        btn_insertOK.setBackground(new java.awt.Color(102, 23, 26));
+        btn_insertOK.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_insertOK.setForeground(new java.awt.Color(226, 226, 229));
+        btn_insertOK.setText("OK");
+        btn_insertOK.setBorder(null);
+        btn_insertOK.setFocusPainted(false);
+        btn_insertOK.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_insertBtn.add(btn_insertOK);
+        btn_insertOK.setBounds(570, 0, 100, 40);
+
+        btn_insertCancel.setBackground(new java.awt.Color(102, 23, 26));
+        btn_insertCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_insertCancel.setForeground(new java.awt.Color(226, 226, 229));
+        btn_insertCancel.setText("Cancel");
+        btn_insertCancel.setBorder(null);
+        btn_insertCancel.setFocusPainted(false);
+        btn_insertCancel.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_insertBtn.add(btn_insertCancel);
+        btn_insertCancel.setBounds(690, 0, 100, 40);
+
+        jd_insert.getContentPane().add(jp_insertBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 810, -1));
+
+        jd_edit.setSize(new java.awt.Dimension(820, 390));
+        jd_edit.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_infor2.setBackground(new java.awt.Color(255, 255, 255));
+        jp_infor2.setOpaque(false);
+        jp_infor2.setPreferredSize(new java.awt.Dimension(810, 500));
+        jp_infor2.setLayout(null);
+
+        jl_screenRoomManagement2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jl_screenRoomManagement2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_screenRoomManagement2.setText("Insert Screen Room");
+        jp_infor2.add(jl_screenRoomManagement2);
+        jl_screenRoomManagement2.setBounds(0, 0, 810, 32);
+
+        jl_roomID2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_roomID2.setText("Room ID:");
+        jl_roomID2.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor2.add(jl_roomID2);
+        jl_roomID2.setBounds(30, 60, 150, 30);
+
+        tf_roomID2.setBackground(new java.awt.Color(226, 226, 229));
+        tf_roomID2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_roomID2.setBorder(null);
+        tf_roomID2.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_roomID2.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_infor2.add(tf_roomID2);
+        tf_roomID2.setBounds(180, 60, 220, 30);
+
+        jl_roomName2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_roomName2.setText("Room name:");
+        jl_roomName2.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor2.add(jl_roomName2);
+        jl_roomName2.setBounds(420, 60, 150, 30);
+
+        tf_roomName2.setBackground(new java.awt.Color(226, 226, 229));
+        tf_roomName2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_roomName2.setBorder(null);
+        tf_roomName2.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_roomName2.setPreferredSize(new java.awt.Dimension(100, 30));
+        tf_roomName2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_roomName2ActionPerformed(evt);
+            }
+        });
+        jp_infor2.add(tf_roomName2);
+        tf_roomName2.setBounds(570, 60, 220, 30);
+
+        jl_screenType2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_screenType2.setText("Screen Type:");
+        jl_screenType2.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor2.add(jl_screenType2);
+        jl_screenType2.setBounds(30, 100, 150, 30);
+
+        tf_screenType2.setBackground(new java.awt.Color(226, 226, 229));
+        tf_screenType2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_screenType2.setBorder(null);
+        tf_screenType2.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_screenType2.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_infor2.add(tf_screenType2);
+        tf_screenType2.setBounds(180, 100, 220, 30);
+
+        jl_equipment2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_equipment2.setText("Equipment:");
+        jl_equipment2.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor2.add(jl_equipment2);
+        jl_equipment2.setBounds(420, 100, 150, 30);
+
+        tf_equipment2.setBackground(new java.awt.Color(226, 226, 229));
+        tf_equipment2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_equipment2.setBorder(null);
+        tf_equipment2.setMaximumSize(new java.awt.Dimension(370, 30));
+        tf_equipment2.setPreferredSize(new java.awt.Dimension(100, 30));
+        jp_infor2.add(tf_equipment2);
+        tf_equipment2.setBounds(570, 100, 220, 30);
+
+        jl_note2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_note2.setText("Note:");
+        jl_note2.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor2.add(jl_note2);
+        jl_note2.setBounds(30, 180, 150, 30);
+
+        sp_note2.setBorder(null);
+
+        ta_note2.setBackground(new java.awt.Color(226, 226, 229));
+        ta_note2.setColumns(20);
+        ta_note2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ta_note2.setRows(5);
+        ta_note2.setBorder(null);
+        ta_note2.setPreferredSize(new java.awt.Dimension(260, 80));
+        sp_note2.setViewportView(ta_note2);
+
+        jp_infor2.add(sp_note2);
+        sp_note2.setBounds(180, 180, 610, 110);
+
+        jl_status2.setBackground(new java.awt.Color(255, 255, 255));
+        jl_status2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jl_status2.setText("Status:");
+        jl_status2.setPreferredSize(new java.awt.Dimension(150, 16));
+        jp_infor2.add(jl_status2);
+        jl_status2.setBounds(30, 140, 150, 30);
+
+        bg_editStatus.add(rb_available2);
+        rb_available2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rb_available2.setText("Available");
+        rb_available2.setBorder(null);
+        rb_available2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_available2ActionPerformed(evt);
+            }
+        });
+        jp_infor2.add(rb_available2);
+        rb_available2.setBounds(180, 140, 100, 30);
+
+        bg_editStatus.add(rb_notAvailable2);
+        rb_notAvailable2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rb_notAvailable2.setText("Not Available");
+        rb_notAvailable2.setBorder(null);
+        rb_notAvailable2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_notAvailable2ActionPerformed(evt);
+            }
+        });
+        jp_infor2.add(rb_notAvailable2);
+        rb_notAvailable2.setBounds(270, 140, 130, 30);
+
+        jd_edit.getContentPane().add(jp_infor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 280));
+
+        jp_editBtn.setOpaque(false);
+        jp_editBtn.setPreferredSize(new java.awt.Dimension(1196, 40));
+        jp_editBtn.setLayout(null);
+
+        btn_editOK.setBackground(new java.awt.Color(102, 23, 26));
+        btn_editOK.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_editOK.setForeground(new java.awt.Color(226, 226, 229));
+        btn_editOK.setText("OK");
+        btn_editOK.setBorder(null);
+        btn_editOK.setFocusPainted(false);
+        btn_editOK.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_editBtn.add(btn_editOK);
+        btn_editOK.setBounds(570, 0, 100, 40);
+
+        btn_editCancel.setBackground(new java.awt.Color(102, 23, 26));
+        btn_editCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btn_editCancel.setForeground(new java.awt.Color(226, 226, 229));
+        btn_editCancel.setText("Cancel");
+        btn_editCancel.setBorder(null);
+        btn_editCancel.setFocusPainted(false);
+        btn_editCancel.setPreferredSize(new java.awt.Dimension(100, 40));
+        jp_editBtn.add(btn_editCancel);
+        btn_editCancel.setBounds(690, 0, 100, 40);
+
+        jd_edit.getContentPane().add(jp_editBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 810, -1));
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -76,7 +413,6 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
         jp_infor.add(jl_screenRoomManagement);
         jl_screenRoomManagement.setBounds(7, 2, 1190, 32);
 
-        sp_screenRoom.setBorder(null);
         sp_screenRoom.setDoubleBuffered(true);
         sp_screenRoom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         font.setFontRoboto(sp_screenRoom, 14f);
@@ -89,14 +425,14 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Room ID", "Room Name", "Total Seats", "Screen Type", "Equipment", "Status", "Note"
+                "Room ID", "Room Name", "Screen Type", "Equipment", "Status", "Note"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -110,161 +446,24 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
         sp_screenRoom.setViewportView(jt_screenRoom);
 
         jp_infor.add(sp_screenRoom);
-        sp_screenRoom.setBounds(20, 40, 1150, 350);
-
-        jl_roomID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_roomID, 18f);
-        jl_roomID.setText("Room ID:");
-        jl_roomID.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_roomID);
-        jl_roomID.setBounds(20, 400, 150, 30);
-
-        tf_roomID.setBackground(new java.awt.Color(226, 226, 229));
-        tf_roomID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_roomID, 14f);
-        tf_roomID.setBorder(null);
-        tf_roomID.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_roomID.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_roomID);
-        tf_roomID.setBounds(170, 400, 220, 30);
-
-        jl_roomName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_roomName, 18f);
-        jl_roomName.setText("Room name:");
-        jl_roomName.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_roomName);
-        jl_roomName.setBounds(410, 400, 150, 30);
-
-        tf_roomName.setBackground(new java.awt.Color(226, 226, 229));
-        tf_roomName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_roomName, 14f);
-        tf_roomName.setBorder(null);
-        tf_roomName.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_roomName.setPreferredSize(new java.awt.Dimension(100, 30));
-        tf_roomName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_roomNameActionPerformed(evt);
-            }
-        });
-        jp_infor.add(tf_roomName);
-        tf_roomName.setBounds(560, 400, 220, 30);
-
-        jl_totalSeats.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_totalSeats, 18f);
-        jl_totalSeats.setText("Total seats:");
-        jl_totalSeats.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_totalSeats);
-        jl_totalSeats.setBounds(800, 400, 150, 30);
-
-        tf_totalSeats.setBackground(new java.awt.Color(226, 226, 229));
-        tf_totalSeats.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_totalSeats, 14f);
-        tf_totalSeats.setBorder(null);
-        tf_totalSeats.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_totalSeats.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_totalSeats);
-        tf_totalSeats.setBounds(950, 400, 220, 30);
-
-        jl_screenType.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_screenType, 18f);
-        jl_screenType.setText("Screen Type:");
-        jl_screenType.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_screenType);
-        jl_screenType.setBounds(20, 440, 150, 30);
-
-        tf_screenType.setBackground(new java.awt.Color(226, 226, 229));
-        tf_screenType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_screenType, 14f);
-        tf_screenType.setBorder(null);
-        tf_screenType.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_screenType.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_screenType);
-        tf_screenType.setBounds(170, 440, 220, 30);
-
-        jl_equipment.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_equipment, 18f);
-        jl_equipment.setText("Equipment:");
-        jl_equipment.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_equipment);
-        jl_equipment.setBounds(410, 440, 150, 30);
-
-        tf_equipment.setBackground(new java.awt.Color(226, 226, 229));
-        tf_equipment.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(tf_equipment, 14f);
-        tf_equipment.setBorder(null);
-        tf_equipment.setMaximumSize(new java.awt.Dimension(370, 30));
-        tf_equipment.setPreferredSize(new java.awt.Dimension(100, 30));
-        jp_infor.add(tf_equipment);
-        tf_equipment.setBounds(560, 440, 220, 30);
-
-        jl_note.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_note, 18f);
-        jl_note.setText("Note:");
-        jl_note.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_note);
-        jl_note.setBounds(20, 480, 150, 30);
-
-        sp_note.setBorder(null);
-
-        ta_note.setBackground(new java.awt.Color(226, 226, 229));
-        ta_note.setColumns(20);
-        ta_note.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(ta_note, 14f);
-        ta_note.setRows(5);
-        ta_note.setBorder(null);
-        ta_note.setPreferredSize(new java.awt.Dimension(260, 80));
-        sp_note.setViewportView(ta_note);
-
-        jp_infor.add(sp_note);
-        sp_note.setBounds(170, 480, 1000, 110);
-
-        jl_status.setBackground(new java.awt.Color(255, 255, 255));
-        jl_status.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        font.setFontRoboto(jl_status, 18f);
-        jl_status.setText("Status:");
-        jl_status.setPreferredSize(new java.awt.Dimension(150, 16));
-        jp_infor.add(jl_status);
-        jl_status.setBounds(800, 440, 90, 30);
-
-        rb_available.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(rb_available, 14f);
-        rb_available.setText("Available");
-        rb_available.setBorder(null);
-        rb_available.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_availableActionPerformed(evt);
-            }
-        });
-        jp_infor.add(rb_available);
-        rb_available.setBounds(900, 440, 130, 30);
-
-        rb_notAvailable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        font.setFontRoboto(rb_notAvailable, 14f);
-        rb_notAvailable.setText("Not Available");
-        rb_notAvailable.setBorder(null);
-        jp_infor.add(rb_notAvailable);
-        rb_notAvailable.setBounds(1040, 440, 130, 30);
+        sp_screenRoom.setBounds(20, 40, 1150, 550);
 
         jp_content.add(jp_infor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 590));
 
-        jpButton.setOpaque(false);
-        jpButton.setPreferredSize(new java.awt.Dimension(1196, 40));
-        jpButton.setLayout(new java.awt.GridLayout(1, 5, 70, 30));
+        jp_button.setOpaque(false);
+        jp_button.setPreferredSize(new java.awt.Dimension(1196, 40));
+        jp_button.setLayout(null);
 
         btn_insert.setBackground(new java.awt.Color(102, 23, 26));
         btn_insert.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        font.setFontRobotoBold(btn_insert, 20f);
         btn_insert.setForeground(new java.awt.Color(226, 226, 229));
         btn_insert.setText("Insert");
         btn_insert.setBorder(null);
         btn_insert.setFocusPainted(false);
-        btn_insert.setPreferredSize(new java.awt.Dimension(200, 40));
-        btn_insert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_insertActionPerformed(evt);
-            }
-        });
-        jpButton.add(btn_insert);
+        btn_insert.setMaximumSize(new java.awt.Dimension(1000, 500));
+        btn_insert.setPreferredSize(new java.awt.Dimension(150, 40));
+        jp_button.add(btn_insert);
+        btn_insert.setBounds(0, 0, 150, 40);
 
         btn_delete.setBackground(new java.awt.Color(102, 23, 26));
         btn_delete.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -272,8 +471,9 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
         btn_delete.setText("Delete");
         btn_delete.setBorder(null);
         btn_delete.setFocusPainted(false);
-        btn_delete.setPreferredSize(new java.awt.Dimension(200, 40));
-        jpButton.add(btn_delete);
+        btn_delete.setPreferredSize(new java.awt.Dimension(150, 40));
+        jp_button.add(btn_delete);
+        btn_delete.setBounds(210, 0, 150, 40);
 
         btn_edit.setBackground(new java.awt.Color(102, 23, 26));
         btn_edit.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -281,28 +481,11 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
         btn_edit.setText("Edit");
         btn_edit.setBorder(null);
         btn_edit.setFocusPainted(false);
-        btn_edit.setPreferredSize(new java.awt.Dimension(200, 40));
-        jpButton.add(btn_edit);
+        btn_edit.setPreferredSize(new java.awt.Dimension(150, 40));
+        jp_button.add(btn_edit);
+        btn_edit.setBounds(420, 0, 150, 40);
 
-        btn_ok.setBackground(new java.awt.Color(102, 23, 26));
-        btn_ok.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btn_ok.setForeground(new java.awt.Color(226, 226, 229));
-        btn_ok.setText("OK");
-        btn_ok.setBorder(null);
-        btn_ok.setFocusPainted(false);
-        btn_ok.setPreferredSize(new java.awt.Dimension(200, 40));
-        jpButton.add(btn_ok);
-
-        btn_cancel.setBackground(new java.awt.Color(102, 23, 26));
-        btn_cancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btn_cancel.setForeground(new java.awt.Color(226, 226, 229));
-        btn_cancel.setText("Cancel");
-        btn_cancel.setBorder(null);
-        btn_cancel.setFocusPainted(false);
-        btn_cancel.setPreferredSize(new java.awt.Dimension(150, 40));
-        jpButton.add(btn_cancel);
-
-        jp_content.add(jpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 597, 1140, -1));
+        jp_content.add(jp_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 600, 560, -1));
 
         add(jp_content, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 19, -1, -1));
 
@@ -310,47 +493,113 @@ public class ScreenRoomManagementPanel extends javax.swing.JPanel {
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tf_roomNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_roomNameActionPerformed
+    private void tf_roomName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_roomName1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tf_roomNameActionPerformed
+    }//GEN-LAST:event_tf_roomName1ActionPerformed
 
-    private void rb_availableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_availableActionPerformed
+    private void rb_available1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_available1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rb_availableActionPerformed
+    }//GEN-LAST:event_rb_available1ActionPerformed
 
-    private void btn_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertActionPerformed
+    private void rb_notAvailable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_notAvailable1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_insertActionPerformed
+    }//GEN-LAST:event_rb_notAvailable1ActionPerformed
+
+    private void tf_roomName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_roomName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_roomName2ActionPerformed
+
+    private void rb_available2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_available2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb_available2ActionPerformed
+
+    private void rb_notAvailable2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_notAvailable2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb_notAvailable2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton btn_cancel;
+    private javax.swing.ButtonGroup bg_editStatus;
+    private javax.swing.ButtonGroup bg_insertStatus;
     private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_edit;
+    private javax.swing.JButton btn_editCancel;
+    private javax.swing.JButton btn_editOK;
     private javax.swing.JButton btn_insert;
-    private javax.swing.JButton btn_ok;
-    private javax.swing.JLabel jl_equipment;
-    private javax.swing.JLabel jl_note;
-    private javax.swing.JLabel jl_roomID;
-    private javax.swing.JLabel jl_roomName;
+    private javax.swing.JButton btn_insertCancel;
+    private javax.swing.JButton btn_insertOK;
+    private javax.swing.JDialog jd_edit;
+    private javax.swing.JDialog jd_insert;
+    private javax.swing.JLabel jl_equipment1;
+    private javax.swing.JLabel jl_equipment2;
+    private javax.swing.JLabel jl_note1;
+    private javax.swing.JLabel jl_note2;
+    private javax.swing.JLabel jl_roomID1;
+    private javax.swing.JLabel jl_roomID2;
+    private javax.swing.JLabel jl_roomName1;
+    private javax.swing.JLabel jl_roomName2;
     private javax.swing.JLabel jl_screenRoomManagement;
-    private javax.swing.JLabel jl_screenType;
-    private javax.swing.JLabel jl_status;
-    private javax.swing.JLabel jl_totalSeats;
-    private javax.swing.JPanel jpButton;
+    private javax.swing.JLabel jl_screenRoomManagement1;
+    private javax.swing.JLabel jl_screenRoomManagement2;
+    private javax.swing.JLabel jl_screenType1;
+    private javax.swing.JLabel jl_screenType2;
+    private javax.swing.JLabel jl_status1;
+    private javax.swing.JLabel jl_status2;
+    private javax.swing.JPanel jp_button;
     private javax.swing.JPanel jp_content;
+    private javax.swing.JPanel jp_editBtn;
     private javax.swing.JPanel jp_infor;
+    private javax.swing.JPanel jp_infor1;
+    private javax.swing.JPanel jp_infor2;
+    private javax.swing.JPanel jp_insertBtn;
     private javax.swing.JTable jt_screenRoom;
-    private javax.swing.JRadioButton rb_available;
-    private javax.swing.JRadioButton rb_notAvailable;
-    private javax.swing.JScrollPane sp_note;
+    private javax.swing.JRadioButton rb_available1;
+    private javax.swing.JRadioButton rb_available2;
+    private javax.swing.JRadioButton rb_notAvailable1;
+    private javax.swing.JRadioButton rb_notAvailable2;
+    private javax.swing.JScrollPane sp_note1;
+    private javax.swing.JScrollPane sp_note2;
     private javax.swing.JScrollPane sp_screenRoom;
-    private javax.swing.JTextArea ta_note;
-    private javax.swing.JTextField tf_equipment;
-    private javax.swing.JTextField tf_roomID;
-    private javax.swing.JTextField tf_roomName;
-    private javax.swing.JTextField tf_screenType;
-    private javax.swing.JTextField tf_totalSeats;
+    private javax.swing.JTextArea ta_note1;
+    private javax.swing.JTextArea ta_note2;
+    private javax.swing.JTextField tf_equipment1;
+    private javax.swing.JTextField tf_equipment2;
+    private javax.swing.JTextField tf_roomID1;
+    private javax.swing.JTextField tf_roomID2;
+    private javax.swing.JTextField tf_roomName1;
+    private javax.swing.JTextField tf_roomName2;
+    private javax.swing.JTextField tf_screenType1;
+    private javax.swing.JTextField tf_screenType2;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener(ActionListener ac){
+        btn_insert.addActionListener(ac);
+        btn_insertCancel.addActionListener(ac);
+        btn_insertOK.addActionListener(ac);
+        btn_edit.addActionListener(ac);
+        btn_editCancel.addActionListener(ac);
+        btn_editOK.addActionListener(ac);
+        btn_delete.addActionListener(ac);
+    }
+    
+    public void setData(){
+        DefaultTableModel tableModel = (DefaultTableModel) jt_screenRoom.getModel();
+        tableModel.setRowCount(0);
+        
+        for (ScreenRoom m : screenRoomManagementDAO.getScreenRooms()) {
+            String[] rowData = {
+                m.getRid(),
+                m.getRname(),
+//                "",
+                m.getType(),
+                m.getEquipment(),
+                m.isStatus()? "Available": "Not available",
+                m.getNote()
+            };
+            // Thêm dòng vào bảng
+            tableModel.addRow(rowData);
+        
+        }
+    }
 }

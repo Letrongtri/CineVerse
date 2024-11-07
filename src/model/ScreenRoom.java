@@ -4,9 +4,6 @@
  */
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -15,7 +12,6 @@ import java.util.Objects;
  */
 public class ScreenRoom {
     private String rid, rname;
-    private List<Seat> seats;
     private String type, equipment;
     private boolean status;
     private String note;
@@ -23,17 +19,15 @@ public class ScreenRoom {
     public ScreenRoom(){
         rid = new String();
         rname = new String();
-        seats = new ArrayList<Seat>();
         type = new String();
         equipment = new String();
         status = false;
         note = new String();
     }
 
-    public ScreenRoom(String rid, String rname, List<Seat> seats, String type, String equipment, boolean status, String note) {
+    public ScreenRoom(String rid, String rname, String type, String equipment, boolean status, String note) {
         this.rid = rid;
         this.rname = rname;
-        this.seats = seats;
         this.type = type;
         this.equipment = equipment;
         this.status = status;
@@ -46,10 +40,6 @@ public class ScreenRoom {
 
     public String getRname() {
         return rname;
-    }
-
-    public List<Seat> getSeats() {
-        return seats;
     }
 
     public String getType() {
@@ -76,10 +66,6 @@ public class ScreenRoom {
         this.rname = rname;
     }
 
-    public void setSeats(List<Seat> seats) {
-        this.seats = seats;
-    }
-
     public void setType(String type) {
         this.type = type;
     }
@@ -95,22 +81,19 @@ public class ScreenRoom {
     public void setNote(String note) {
         this.note = note;
     }
-    
-    
-    
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.rid);
-        hash = 59 * hash + Objects.hashCode(this.rname);
-        hash = 59 * hash + Objects.hashCode(this.seats);
-        hash = 59 * hash + Objects.hashCode(this.type);
-        hash = 59 * hash + Objects.hashCode(this.equipment);
-        hash = 59 * hash + (this.status ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.note);
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.rid);
+        hash = 41 * hash + Objects.hashCode(this.rname);
+        hash = 41 * hash + Objects.hashCode(this.type);
+        hash = 41 * hash + Objects.hashCode(this.equipment);
+        hash = 41 * hash + (this.status ? 1 : 0);
+        hash = 41 * hash + Objects.hashCode(this.note);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -138,15 +121,12 @@ public class ScreenRoom {
         if (!Objects.equals(this.equipment, other.equipment)) {
             return false;
         }
-        if (!Objects.equals(this.note, other.note)) {
-            return false;
-        }
-        return Objects.equals(this.seats, other.seats);
+        return Objects.equals(this.note, other.note);
     }
 
     @Override
     public String toString() {
-        return "ScreenRoom{" + "rid=" + rid + ", rname=" + rname + ", seats=" + seats + ", type=" + type + ", equipment=" + equipment + ", status=" + status + ", note=" + note + '}';
+        return "ScreenRoom{" + "rid=" + rid + ", rname=" + rname + ", type=" + type + ", equipment=" + equipment + ", status=" + status + ", note=" + note + '}';
     }
 
     

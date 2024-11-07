@@ -19,10 +19,12 @@ public class HomePageController implements MouseListener{
     
     public HomePageController(MainFrame mainFrame){
         this.mainFrame = mainFrame;
+        
         mainFrame.setHeaderMouseListener(this);
+        
         mainFrame.getHomePagePanel().setMouseListener(this);
+        
         mainFrame.getSideBar().setMouseListener(this);
-//        MovieManagementController movieManagementController = new MovieManagementController(mainFrame);
     }
 
     @Override

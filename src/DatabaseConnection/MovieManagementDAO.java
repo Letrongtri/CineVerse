@@ -106,10 +106,6 @@ public class MovieManagementDAO {
 //    }
 //    
     public void addMovie(Movie m){
-        if(isExistMovie(m.getMid())){
-            System.out.println("Movie is existed!)");
-            return;
-        }
         try {
             Connection conn = DatabaseConnection.getConnection();
             CallableStatement c = conn.prepareCall("{call sp_addMovie(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
@@ -147,10 +143,6 @@ public class MovieManagementDAO {
     }
     
     public void editMovie(Movie m){
-        if(!isExistMovie(m.getMid())){
-            System.out.println("Movie is not existed!)");
-            return;
-        }
         try {
             Connection conn = DatabaseConnection.getConnection();
             CallableStatement c = conn.prepareCall("{call sp_editMovie(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");

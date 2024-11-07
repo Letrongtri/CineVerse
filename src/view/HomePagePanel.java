@@ -4,10 +4,7 @@
  */
 package view;
 
-import controller.HomePageController;
-import controller.MainController;
 import font.SetFont;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 
