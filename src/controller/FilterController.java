@@ -34,13 +34,13 @@ public class FilterController implements ActionListener{
                 break;
             case "Find":
                 if (e.getSource().equals(filterPanel.getBtn_findMovie())){
-                    
+                    filterPanel.findMovie();
                 }
                 else if (e.getSource().equals(filterPanel.getBtn_findStaff())){
-                    
+                    filterPanel.findStaff();
                 }
                 else if (e.getSource().equals(filterPanel.getBtn_findCustomer())){
-                    
+                    filterPanel.findCustomer();
                 }
                 break;
             default:

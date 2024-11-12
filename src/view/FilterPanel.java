@@ -4,10 +4,14 @@
  */
 package view;
 
+import DatabaseConnection.FilterDAO;
 import controller.FilterController;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Movie;
 
 /**
  *
@@ -20,6 +24,7 @@ public class FilterPanel extends javax.swing.JPanel {
     public FilterPanel() {
         initComponents();
         setActionListener(new FilterController(this));
+        setDefaultData();
     }
 
     /**
@@ -162,7 +167,6 @@ public class FilterPanel extends javax.swing.JPanel {
 
         cb_releaseYear.setBackground(new java.awt.Color(226, 226, 229));
         cb_releaseYear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        cb_releaseYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         findMoviePanel.add(cb_releaseYear);
         cb_releaseYear.setBounds(130, 210, 262, 28);
 
@@ -487,6 +491,55 @@ public class FilterPanel extends javax.swing.JPanel {
         card1.show(jp_filter, name);
         CardLayout card2 = (CardLayout) jp_table.getLayout();
         card2.show(jp_table, name);
+    }
+    
+    public void setMovieData(List<Movie> movies){
+        DefaultTableModel tableModel = (DefaultTableModel) jt_movie.getModel();
+        tableModel.setRowCount(0);
+        
+        for (Movie m : movies) {
+            String[] rowData = {
+                m.getMid(),
+                m.getTitle(),
+                m.getGenre(),
+                m.getLanguage(),
+                m.getSubtitle(),
+                String.valueOf(m.getDuration()),
+                m.getDirector(),
+                m.getCast(),
+                m.getRelease_date().toString(), // Chuyển Date sang String
+                m.getEnd_date().toString(),     // Chuyển Date sang String
+                m.getDescription()
+            };
+            // Thêm dòng vào bảng
+            tableModel.addRow(rowData);
+        
+        }
+    }
+    
+    public void setDefaultData(){
+        List<Integer> releaseYears = FilterDAO.getReleaseYearData();
+        cb_releaseYear.addItem("Choose release year");
+        for (Integer releaseYear : releaseYears) {
+            cb_releaseYear.addItem(releaseYear + "");
+        }
+        
+        List<Movie> movies = FilterDAO.findMovie("", "", "", "", 0);
+        setMovieData(movies);
+    }
+
+    public void findMovie() {
+        int releaseYear = cb_releaseYear.getSelectedItem().toString().equals("Choose release year")? 0 : Integer.parseInt(cb_releaseYear.getSelectedItem().toString());
+        List<Movie> movies = FilterDAO.findMovie(tf_movieID.getText(), tf_title.getText(), tf_genre.getText(), tf_language.getText(), releaseYear);
+        setMovieData(movies);
+    }
+
+    public void findStaff() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void findCustomer() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

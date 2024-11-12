@@ -2,8 +2,11 @@ package view;
 
 import controller.HomePageController;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 
 public class MainFrame extends javax.swing.JFrame {
     
@@ -13,7 +16,8 @@ public class MainFrame extends javax.swing.JFrame {
         sideBarPanel.setVisible(false);
         
         HomePageController homePageController = new HomePageController(this);
-        
+        sideBarPanel.addMouseListener(new MouseAdapter() {});
+        sideBarPanel.addMouseMotionListener(new MouseMotionAdapter() {});
         //set visible
         this.setVisible(true);
     }
@@ -28,6 +32,8 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sideBarPanel = new javax.swing.JPanel();
+        sideBar = new view.SideBar();
         header = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         btn_Account = new javax.swing.JLabel();
@@ -35,10 +41,9 @@ public class MainFrame extends javax.swing.JFrame {
         btn_Find1 = new javax.swing.JButton();
         btn_SignInSignUp = new javax.swing.JLabel();
         btn_menu = new javax.swing.JLabel();
-        sideBarPanel = new javax.swing.JPanel();
-        sideBar = new view.SideBar();
         contentPanel = new javax.swing.JPanel();
         homePagePanel = new view.HomePagePanel();
+        filterPanel = new view.FilterPanel();
         movieManagementPanel = new view.MovieManagementPanel();
         screenRoomManagementPanel = new view.ScreenRoomManagementPanel();
 
@@ -46,6 +51,14 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("CinéVerse");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sideBarPanel.setBackground(new java.awt.Color(0, 0, 0));
+        sideBarPanel.setBackground(new java.awt.Color(0, 0, 0, 130));
+        sideBarPanel.setPreferredSize(new java.awt.Dimension(1366, 688));
+        sideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        sideBarPanel.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(sideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
 
         header.setBackground(new java.awt.Color(226, 226, 229));
         header.setPreferredSize(new java.awt.Dimension(1370, 80));
@@ -124,16 +137,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
 
-        sideBarPanel.setBackground(new java.awt.Color(0, 0, 0));
-        sideBarPanel.setBackground(new java.awt.Color(0, 0, 0, 130));
-        sideBarPanel.setPreferredSize(new java.awt.Dimension(1366, 688));
-        sideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        sideBarPanel.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        getContentPane().add(sideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
-
         contentPanel.setLayout(new java.awt.CardLayout());
         contentPanel.add(homePagePanel, "homePage");
+        contentPanel.add(filterPanel, "filter");
         contentPanel.add(movieManagementPanel, "movies");
         contentPanel.add(screenRoomManagementPanel, "screenRoom");
 
@@ -230,6 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel btn_SignInSignUp;
     private javax.swing.JLabel btn_menu;
     private javax.swing.JPanel contentPanel;
+    private view.FilterPanel filterPanel;
     private javax.swing.JPanel header;
     private view.HomePagePanel homePagePanel;
     private javax.swing.JLabel logo;
