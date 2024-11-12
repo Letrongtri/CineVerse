@@ -5,7 +5,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,27 +14,27 @@ import java.util.Objects;
  */
 public class ScreenRoom {
     private String rid, rname;
-    private List<Seat> seats;
     private String type, equipment;
+    private List<Seat> seats;
     private boolean status;
     private String note;
     
     public ScreenRoom(){
         rid = new String();
         rname = new String();
-        seats = new ArrayList<Seat>();
         type = new String();
         equipment = new String();
+        seats = new ArrayList<Seat>();
         status = false;
         note = new String();
     }
 
-    public ScreenRoom(String rid, String rname, List<Seat> seats, String type, String equipment, boolean status, String note) {
+    public ScreenRoom(String rid, String rname, String type, String equipment, List<Seat> seats, boolean status, String note) {
         this.rid = rid;
         this.rname = rname;
-        this.seats = seats;
         this.type = type;
         this.equipment = equipment;
+        this.seats = seats;
         this.status = status;
         this.note = note;
     }
@@ -48,16 +47,16 @@ public class ScreenRoom {
         return rname;
     }
 
-    public List<Seat> getSeats() {
-        return seats;
-    }
-
     public String getType() {
         return type;
     }
 
     public String getEquipment() {
         return equipment;
+    }
+    
+    public List<Seat> getSeats(){
+        return seats;
     }
 
     public boolean isStatus() {
@@ -76,10 +75,6 @@ public class ScreenRoom {
         this.rname = rname;
     }
 
-    public void setSeats(List<Seat> seats) {
-        this.seats = seats;
-    }
-
     public void setType(String type) {
         this.type = type;
     }
@@ -96,18 +91,20 @@ public class ScreenRoom {
         this.note = note;
     }
     
-    
-    
+    public void setSeats(List<Seat> seats){
+        this.seats = seats;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.rid);
-        hash = 59 * hash + Objects.hashCode(this.rname);
-        hash = 59 * hash + Objects.hashCode(this.seats);
-        hash = 59 * hash + Objects.hashCode(this.type);
-        hash = 59 * hash + Objects.hashCode(this.equipment);
-        hash = 59 * hash + (this.status ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.note);
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.rid);
+        hash = 71 * hash + Objects.hashCode(this.rname);
+        hash = 71 * hash + Objects.hashCode(this.type);
+        hash = 71 * hash + Objects.hashCode(this.equipment);
+        hash = 71 * hash + Objects.hashCode(this.seats);
+        hash = 71 * hash + (this.status ? 1 : 0);
+        hash = 71 * hash + Objects.hashCode(this.note);
         return hash;
     }
 
@@ -146,7 +143,7 @@ public class ScreenRoom {
 
     @Override
     public String toString() {
-        return "ScreenRoom{" + "rid=" + rid + ", rname=" + rname + ", seats=" + seats + ", type=" + type + ", equipment=" + equipment + ", status=" + status + ", note=" + note + '}';
+        return "ScreenRoom{" + "rid=" + rid + ", rname=" + rname + ", type=" + type + ", equipment=" + equipment + ", seats=" + seats + ", status=" + status + ", note=" + note + '}';
     }
 
     

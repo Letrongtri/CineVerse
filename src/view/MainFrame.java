@@ -1,24 +1,18 @@
 package view;
 
-import DatabaseConnection.MovieManagementDAO;
-import controller.MainController;
+import controller.HomePageController;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 
 public class MainFrame extends javax.swing.JFrame {
-    private MovieManagementDAO cineVerseDAO;
     
     public MainFrame() {
-//        cineVerseDAO = new MovieManagementDAO(new CineVerseModel());
         
         initComponents();
         sideBarPanel.setVisible(false);
         
-        MainController mainController = new MainController(this);
-                
-//        cineVerseDAO.setMovieData();
-//        setData();
+        HomePageController homePageController = new HomePageController(this);
         
         //set visible
         this.setVisible(true);
@@ -29,10 +23,6 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(contentPanel, name);
         inactiveSideBar();
     }
-    
-//    public void setData(){
-//        movieManagementPanel.setMovies(cineVerseDAO.getCineVerseModel().getMovies());
-//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
