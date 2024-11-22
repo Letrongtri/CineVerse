@@ -11,22 +11,28 @@ import java.util.Objects;
  * @author ADMIN
  */
 public class Seat {
-    private String seat_id, type;
-    private boolean status;
+    private int seat_id;
+    private String type;
+    private String status;
+    private int seat_row, seat_column;
     
     public Seat(){
-        seat_id = new String();
+        seat_id = 0;
         type = new String();
-        status = false;
+        status = new String();
+        seat_row = -1;
+        seat_column = -1;
     }
 
-    public Seat(String seat_id, String type, boolean status) {
+    public Seat(int seat_id, String type, String status, int seat_row, int seat_column) {
         this.seat_id = seat_id;
         this.type = type;
         this.status = status;
+        this.seat_row = seat_row;
+        this.seat_column = seat_column;
     }
 
-    public String getSeat_id() {
+    public int getSeat_id() {
         return seat_id;
     }
 
@@ -34,11 +40,7 @@ public class Seat {
         return type;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setSeat_id(String seat_id) {
+    public void setSeat_id(int seat_id) {
         this.seat_id = seat_id;
     }
 
@@ -46,16 +48,38 @@ public class Seat {
         this.type = type;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getSeat_row() {
+        return seat_row;
+    }
+
+    public void setSeat_row(int seat_row) {
+        this.seat_row = seat_row;
+    }
+
+    public int getSeat_column() {
+        return seat_column;
+    }
+
+    public void setSeat_column(int seat_column) {
+        this.seat_column = seat_column;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.seat_id);
-        hash = 59 * hash + Objects.hashCode(this.type);
-        hash = 59 * hash + (this.status ? 1 : 0);
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.seat_id);
+        hash = 37 * hash + Objects.hashCode(this.type);
+        hash = 37 * hash + Objects.hashCode(this.status);
+        hash = 37 * hash + this.seat_row;
+        hash = 37 * hash + this.seat_column;
         return hash;
     }
 
@@ -71,19 +95,26 @@ public class Seat {
             return false;
         }
         final Seat other = (Seat) obj;
-        if (this.status != other.status) {
+        if (this.seat_id != other.seat_id) {
             return false;
         }
-        if (!Objects.equals(this.seat_id, other.seat_id)) {
+        if (this.seat_row != other.seat_row) {
             return false;
         }
-        return Objects.equals(this.type, other.type);
+        if (this.seat_column != other.seat_column) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        return Objects.equals(this.status, other.status);
     }
 
+    
     @Override
     public String toString() {
-        return "Seat{" + "seat_id=" + seat_id + ", type=" + type + ", status=" + status + '}';
+        return "Seat{" + "seat_id=" + seat_id + ", type=" + type + ", status=" + status + ", seat_row=" + seat_row + ", seat_column=" + seat_column + '}';
     }
-    
+
     
 }

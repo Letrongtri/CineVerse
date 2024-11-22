@@ -18,7 +18,6 @@ public class MovieManagementController implements ActionListener{
     
     public MovieManagementController(MovieManagementPanel movieManagementPanel) {
         this.movieManagementPanel = movieManagementPanel;
-        movieManagementPanel.setActionListener(this);
     }
     
     @Override
@@ -37,10 +36,10 @@ public class MovieManagementController implements ActionListener{
                 break;
             case "OK": 
                 if (e.getSource().equals(movieManagementPanel.getBtn_insertOK())){
-//                    movieManagementPanel.insertMovie();
+                    movieManagementPanel.insertMovie();
                 }
                 else if (e.getSource().equals(movieManagementPanel.getBtn_editOK())){
-                    
+                    movieManagementPanel.editMovie();
                 }
                 break;
             case "Cancel":

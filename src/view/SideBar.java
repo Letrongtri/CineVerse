@@ -33,7 +33,7 @@ public class SideBar extends javax.swing.JPanel {
 
         jp_sideBar = new javax.swing.JPanel();
         btn_home = new javax.swing.JLabel();
-        btn_findMovie = new javax.swing.JLabel();
+        btn_filter = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btn_screenRoom = new javax.swing.JLabel();
         btn_staff = new javax.swing.JLabel();
@@ -52,10 +52,10 @@ public class SideBar extends javax.swing.JPanel {
         btn_home.setForeground(new java.awt.Color(226, 226, 229));
         btn_home.setText("Home");
 
-        btn_findMovie.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        font.setFontFuturaDisplay(btn_findMovie, 28f);
-        btn_findMovie.setForeground(new java.awt.Color(226, 226, 229));
-        btn_findMovie.setText("Find Movies");
+        btn_filter.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        font.setFontFuturaDisplay(btn_filter, 28f);
+        btn_filter.setForeground(new java.awt.Color(226, 226, 229));
+        btn_filter.setText("Filter");
 
         btn_screenRoom.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         font.setFontFuturaDisplay(btn_screenRoom, 28f);
@@ -70,7 +70,7 @@ public class SideBar extends javax.swing.JPanel {
         btn_showTime.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         font.setFontFuturaDisplay(btn_showTime, 28f);
         btn_showTime.setForeground(new java.awt.Color(226, 226, 229));
-        btn_showTime.setText("Show Time");
+        btn_showTime.setText("Schedule");
 
         btn_ticket.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         font.setFontFuturaDisplay(btn_ticket, 28f);
@@ -102,7 +102,7 @@ public class SideBar extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jp_sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_findMovie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_filter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_screenRoom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_staff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_movie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,7 +126,7 @@ public class SideBar extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(btn_findMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -175,7 +175,7 @@ public class SideBar extends javax.swing.JPanel {
     }
     
     public void setMouseListener(MouseListener ml){
-        btn_findMovie.addMouseListener(ml);
+        btn_filter.addMouseListener(ml);
         btn_home.addMouseListener(ml);
         btn_movie.addMouseListener(ml);
         btn_screenRoom.addMouseListener(ml);
@@ -196,8 +196,8 @@ public class SideBar extends javax.swing.JPanel {
         return btn_exit;
     }
 
-    public JLabel getBtn_findMovie() {
-        return btn_findMovie;
+    public JLabel getBtn_filter() {
+        return btn_filter;
     }
 
     public JLabel getBtn_home() {
@@ -233,7 +233,7 @@ public class SideBar extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btn_account;
     private javax.swing.JLabel btn_exit;
-    private javax.swing.JLabel btn_findMovie;
+    private javax.swing.JLabel btn_filter;
     private javax.swing.JLabel btn_home;
     private javax.swing.JLabel btn_movie;
     private javax.swing.JLabel btn_screenRoom;

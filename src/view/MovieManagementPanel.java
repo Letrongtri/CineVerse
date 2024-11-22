@@ -5,13 +5,10 @@
 package view;
 
 import DatabaseConnection.MovieManagementDAO;
+import controller.MovieManagementController;
 import font.SetFont;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -32,7 +29,7 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         movieManagementDAO = new MovieManagementDAO();
         
         initComponents();
-                
+        setActionListener(new MovieManagementController(this));
         setData();
     }
     
@@ -109,9 +106,7 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_edit = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
-        jd_insert.setMaximumSize(new java.awt.Dimension(850, 500));
         jd_insert.setMinimumSize(new java.awt.Dimension(810, 500));
-        jd_insert.setPreferredSize(new java.awt.Dimension(810, 500));
         jd_insert.setResizable(false);
         jd_insert.setSize(new java.awt.Dimension(820, 540));
         jd_insert.setType(java.awt.Window.Type.POPUP);
@@ -208,11 +203,6 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         tf_duration.setBorder(null);
         tf_duration.setMaximumSize(new java.awt.Dimension(370, 30));
         tf_duration.setPreferredSize(new java.awt.Dimension(100, 30));
-        tf_duration.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_durationActionPerformed(evt);
-            }
-        });
         jp_insertInfor.add(tf_duration);
         tf_duration.setBounds(170, 220, 220, 30);
 
@@ -241,11 +231,6 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         tf_endDate.setBorder(null);
         tf_endDate.setMaximumSize(new java.awt.Dimension(370, 30));
         tf_endDate.setPreferredSize(new java.awt.Dimension(100, 30));
-        tf_endDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_endDateActionPerformed(evt);
-            }
-        });
         jp_insertInfor.add(tf_endDate);
         tf_endDate.setBounds(570, 180, 220, 30);
 
@@ -318,18 +303,12 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_insertCancel.setBorder(null);
         btn_insertCancel.setFocusPainted(false);
         btn_insertCancel.setPreferredSize(new java.awt.Dimension(100, 40));
-        btn_insertCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_insertCancelActionPerformed(evt);
-            }
-        });
         jp_insertBtn.add(btn_insertCancel);
         btn_insertCancel.setBounds(695, 0, 100, 40);
 
         jd_insert.getContentPane().add(jp_insertBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 810, -1));
 
         jd_edit.setMinimumSize(new java.awt.Dimension(810, 500));
-        jd_edit.setPreferredSize(new java.awt.Dimension(810, 500));
         jd_edit.setSize(new java.awt.Dimension(820, 540));
         jd_edit.setType(java.awt.Window.Type.POPUP);
         jd_edit.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -425,11 +404,6 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         tf_duration1.setBorder(null);
         tf_duration1.setMaximumSize(new java.awt.Dimension(370, 30));
         tf_duration1.setPreferredSize(new java.awt.Dimension(100, 30));
-        tf_duration1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_duration1ActionPerformed(evt);
-            }
-        });
         jp_editInfor.add(tf_duration1);
         tf_duration1.setBounds(170, 220, 220, 30);
 
@@ -458,11 +432,6 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         tf_endDate1.setBorder(null);
         tf_endDate1.setMaximumSize(new java.awt.Dimension(370, 30));
         tf_endDate1.setPreferredSize(new java.awt.Dimension(100, 30));
-        tf_endDate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_endDate1ActionPerformed(evt);
-            }
-        });
         jp_editInfor.add(tf_endDate1);
         tf_endDate1.setBounds(570, 180, 220, 30);
 
@@ -643,26 +612,6 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tf_endDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_endDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_endDateActionPerformed
-
-    private void tf_durationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_durationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_durationActionPerformed
-
-    private void tf_duration1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_duration1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_duration1ActionPerformed
-
-    private void tf_endDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_endDate1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_endDate1ActionPerformed
-
-    private void btn_insertCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertCancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_insertCancelActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
@@ -734,36 +683,7 @@ public class MovieManagementPanel extends javax.swing.JPanel {
     private javax.swing.JTextField tf_title;
     private javax.swing.JTextField tf_title1;
     // End of variables declaration//GEN-END:variables
-
-//    public void setMovies(List<Movie> movies){
-//        this.movies = movies;
-//        setData();
-//    }
-    
-    public void setData(){
-        DefaultTableModel tableModel = (DefaultTableModel) jt_movie.getModel();
-        tableModel.setRowCount(0);
-        
-        for (Movie m : movieManagementDAO.getMovies()) {
-            String[] rowData = {
-                m.getMid(),
-                m.getTitle(),
-                m.getGenre(),
-                m.getLanguage(),
-                m.getSubtitle(),
-                String.valueOf(m.getDuration()),
-                m.getDirector(),
-                m.getCast(),
-                m.getRelease_date().toString(), // Chuyển Date sang String
-                m.getEnd_date().toString(),     // Chuyển Date sang String
-                m.getDescription()
-            };
-            // Thêm dòng vào bảng
-            tableModel.addRow(rowData);
-        
-        }
-    }
-    
+   
     public void setActionListener(ActionListener ac){
         btn_insert.addActionListener(ac);
         btn_edit.addActionListener(ac);
@@ -773,96 +693,9 @@ public class MovieManagementPanel extends javax.swing.JPanel {
         btn_editOK.addActionListener(ac);
         btn_editCancel.addActionListener(ac);
     }
-    
-    public void showInsertMovieDialog() {
-        jd_insert.setVisible(true);
-    }
-
-    public void showEditMovieDialog() {
-        Movie movie = getSelectedRow();
-        
-        tf_movieID1.setText(movie.getMid());
-        tf_title1.setText(movie.getTitle());
-        tf_genre1.setText(movie.getGenre());
-        tf_language1.setText(movie.getLanguage());
-        tf_subtitle1.setText(movie.getSubtitle());
-        tf_duration1.setText(movie.getDuration() + "");
-        tf_releaseDate1.setText(movie.getRelease_date() + "");
-        tf_endDate1.setText(movie.getEnd_date() + "");
-        tf_director1.setText(movie.getDirector());
-        tf_cast1.setText(movie.getCast());
-        ta_description1.setText(movie.getDescription());
-        
-        jd_edit.setVisible(true);
-    }
-
-    public void deleteMovie() {
-        Movie m = getSelectedRow();
-        if(movieManagementDAO.isExistMovie(m.getMid())){
-            movieManagementDAO.deleteMovie(m);
-            
-            setData();
-        }
-        else{
-            JOptionPane.showMessageDialog(jp_content, "Movie is not existed.", "Error Movie ID", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void saveMovie() {
-        int duration = Integer.parseInt(tf_duration.getText());
-        LocalDate releaseDate = LocalDate.parse(tf_releaseDate.getText());
-        LocalDate endDate = LocalDate.parse(tf_endDate.getText());
-
-        Movie m = new Movie();
-        m.setMid(tf_movieID.getText());
-        m.setTitle(tf_title.getText());
-        m.setGenre(tf_genre.getText());
-        m.setLanguage(tf_language.getText());
-        m.setSubtitle(tf_subtitle.getText());
-        m.setDuration(duration);
-        m.setDirector(tf_director.getText());
-        m.setCast(tf_cast.getText());
-        m.setRelease_date(releaseDate);
-        m.setEnd_date(endDate);
-        m.setDescription(ta_description.getText());
-
-        if(movieManagementDAO.isExistMovie(m.getMid())){
-            movieManagementDAO.editMovie(m);
-            setData();
-        } 
-        else {
-            movieManagementDAO.addMovie(m);
-            setData();
-        }
-    }
 
     public JTable getJt_movie() {
         return jt_movie;
-    }
-
-    private Movie getSelectedRow() {
-        DefaultTableModel model = (DefaultTableModel) jt_movie.getModel();
-        int selectedRow = jt_movie.getSelectedRow();
-        
-        String movieID = model.getValueAt(selectedRow, 0) + "";
-        String title = model.getValueAt(selectedRow, 1) + "";
-        String genre = model.getValueAt(selectedRow, 2) + "";
-        String language = model.getValueAt(selectedRow, 3) + "";
-        String subtitle = model.getValueAt(selectedRow, 4) + "";
-        int duration = Integer.valueOf(model.getValueAt(selectedRow, 5) + "");
-        String director = model.getValueAt(selectedRow, 6) + "";
-        String cast = model.getValueAt(selectedRow, 7) + "";
-        
-        LocalDate releaseDate = LocalDate.parse(model.getValueAt(selectedRow, 8) + "");
-        LocalDate endDate = LocalDate.parse(model.getValueAt(selectedRow, 9) + "");
-//        String[] ymdReleaseDate = (model.getValueAt(selectedRow, 8) + "").split("-");
-//        Date releaseDate = new Date(Integer.valueOf(ymdReleaseDate[0]), Integer.valueOf(ymdReleaseDate[1]), Integer.valueOf(ymdReleaseDate[2]));
-//        String[] ymdEndDate = (model.getValueAt(selectedRow, 9) + "").split("-");
-//        Date endDate = new Date(Integer.valueOf(ymdEndDate[0]), Integer.valueOf(ymdEndDate[1]), Integer.valueOf(ymdEndDate[2]));
-        
-        String description = model.getValueAt(selectedRow, 10) + "";
-        
-        return new Movie(movieID, title, genre, language, subtitle, duration, director, cast, releaseDate, endDate, description);
     }
 
     public JButton getBtn_delete() {
@@ -914,13 +747,119 @@ public class MovieManagementPanel extends javax.swing.JPanel {
     }
 
     public JButton getBtn_editOK() {
-        return btn_editCancel;
+        return btn_editOK;
     }
 
     public void setBtn_editOK(JButton btn_editOK) {
-        this.btn_editCancel = btn_editOK;
+        this.btn_editOK = btn_editOK;
     }
     
+    // Function
+    
+    public void setData(){
+        DefaultTableModel tableModel = (DefaultTableModel) jt_movie.getModel();
+        tableModel.setRowCount(0);
+        
+        for (Movie m : movieManagementDAO.getMovies()) {
+            String[] rowData = {
+                m.getMid(),
+                m.getTitle(),
+                m.getGenre(),
+                m.getLanguage(),
+                m.getSubtitle(),
+                String.valueOf(m.getDuration()),
+                m.getDirector(),
+                m.getCast(),
+                m.getRelease_date().toString(), // Chuyển Date sang String
+                m.getEnd_date().toString(),     // Chuyển Date sang String
+                m.getDescription()
+            };
+            // Thêm dòng vào bảng
+            tableModel.addRow(rowData);
+        
+        }
+    }
+    
+    public void showInsertMovieDialog() {
+        tf_movieID.setText("");
+        tf_title.setText("");
+        tf_genre.setText("");
+        tf_language.setText("");
+        tf_subtitle.setText("");
+        tf_duration.setText("");
+        tf_director.setText("");
+        tf_cast.setText("");
+        tf_releaseDate.setText("");
+        tf_endDate.setText("");
+        ta_description.setText("");
+        
+        jd_insert.setVisible(true);
+    }
+
+    public void showEditMovieDialog() {
+        Movie movie = getSelectedRow();
+        if (movie == null){
+            JOptionPane.showMessageDialog(jd_edit,"Please choose a movie to edit!", "Edit Movie Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        tf_movieID1.setText(movie.getMid());
+        tf_title1.setText(movie.getTitle());
+        tf_genre1.setText(movie.getGenre());
+        tf_language1.setText(movie.getLanguage());
+        tf_subtitle1.setText(movie.getSubtitle());
+        tf_duration1.setText(movie.getDuration() + "");
+        tf_releaseDate1.setText(movie.getRelease_date() + "");
+        tf_endDate1.setText(movie.getEnd_date() + "");
+        tf_director1.setText(movie.getDirector());
+        tf_cast1.setText(movie.getCast());
+        ta_description1.setText(movie.getDescription());
+        
+        jd_edit.setVisible(true);
+    }
+
+    public void deleteMovie() {
+        int confirm = JOptionPane.showConfirmDialog(this, "Do you want to delete this movie?", "Delete", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (confirm != JOptionPane.YES_OPTION){
+            return;
+        }
+        Movie m = getSelectedRow();
+        if (m == null){
+            JOptionPane.showMessageDialog(this,"Please choose a movie to delete!", "Delete Movie Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        boolean checkDelete = movieManagementDAO.deleteMovie(m);
+        if(!checkDelete){
+            JOptionPane.showMessageDialog(this,"Cannot delete this movie because the foreign key constraint fails!", "Delete Movie Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        setData();
+    }
+    
+    private Movie getSelectedRow() {
+        DefaultTableModel model = (DefaultTableModel) jt_movie.getModel();
+        int selectedRow = jt_movie.getSelectedRow();
+        if (selectedRow == -1){
+            return null;
+        }
+        
+        String movieID = model.getValueAt(selectedRow, 0) + "";
+        String title = model.getValueAt(selectedRow, 1) + "";
+        String genre = model.getValueAt(selectedRow, 2) + "";
+        String language = model.getValueAt(selectedRow, 3) + "";
+        String subtitle = model.getValueAt(selectedRow, 4) + "";
+        int duration = Integer.parseInt(model.getValueAt(selectedRow, 5) + "");
+        String director = model.getValueAt(selectedRow, 6) + "";
+        String cast = model.getValueAt(selectedRow, 7) + "";
+        
+        LocalDate releaseDate = LocalDate.parse(model.getValueAt(selectedRow, 8) + "");
+        LocalDate endDate = LocalDate.parse(model.getValueAt(selectedRow, 9) + "");
+        String description = model.getValueAt(selectedRow, 10) + "";
+        
+        return new Movie(movieID, title, genre, language, subtitle, duration, director, cast, releaseDate, endDate, description);
+    }
     
     public void cancelInsert() {
         int confirm = JOptionPane.showConfirmDialog(jd_insert, "Do you want to cancel?", "Cancel", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -935,5 +874,77 @@ public class MovieManagementPanel extends javax.swing.JPanel {
             jd_edit.setVisible(false);
         }
     }
-    
+
+    public void insertMovie() {
+        // Get movie's infor in the insert dialog
+        try {
+            int duration = Integer.parseInt(tf_duration.getText());
+            LocalDate releaseDate = LocalDate.parse(tf_releaseDate.getText());
+            LocalDate endDate = LocalDate.parse(tf_endDate.getText());
+
+            Movie m = new Movie();
+            m.setMid(tf_movieID.getText());
+            m.setTitle(tf_title.getText());
+            m.setGenre(tf_genre.getText());
+            m.setLanguage(tf_language.getText());
+            m.setSubtitle(tf_subtitle.getText());
+            m.setDuration(duration);
+            m.setDirector(tf_director.getText());
+            m.setCast(tf_cast.getText());
+            m.setRelease_date(releaseDate);
+            m.setEnd_date(endDate);
+            m.setDescription(ta_description.getText());
+
+            if(movieManagementDAO.isExistMovie(m.getMid())){
+                JOptionPane.showMessageDialog(jd_insert,"Movie ID is existed. Please enter again!", "Insert Movie Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            boolean canInsert = movieManagementDAO.addMovie(m);
+            if(canInsert) {
+                setData();
+                JOptionPane.showMessageDialog(jd_insert,"Movie has been added!", "Adding Successfully", JOptionPane.PLAIN_MESSAGE);
+                jd_insert.setVisible(false);
+            }
+            else {
+                JOptionPane.showMessageDialog(jd_insert,"Movie cannot be added!", "Adding Error", JOptionPane.PLAIN_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_insert,"Syntax Error! Please enter again.", "Adding Error", JOptionPane.PLAIN_MESSAGE);
+        }
+    }
+
+    public void editMovie() {
+        // Get movie's infor in edit 
+        try {
+            int duration = Integer.parseInt(tf_duration1.getText());
+            LocalDate releaseDate = LocalDate.parse(tf_releaseDate1.getText());
+            LocalDate endDate = LocalDate.parse(tf_endDate1.getText());
+
+            Movie m = new Movie();
+            m.setMid(tf_movieID1.getText());
+            m.setTitle(tf_title1.getText());
+            m.setGenre(tf_genre1.getText());
+            m.setLanguage(tf_language1.getText());
+            m.setSubtitle(tf_subtitle1.getText());
+            m.setDuration(duration);
+            m.setDirector(tf_director1.getText());
+            m.setCast(tf_cast1.getText());
+            m.setRelease_date(releaseDate);
+            m.setEnd_date(endDate);
+            m.setDescription(ta_description1.getText());
+
+            if(!movieManagementDAO.isExistMovie(m.getMid())){
+                JOptionPane.showMessageDialog(jd_edit,"Movie ID is not existed. Please enter again!", "Insert Movie Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            movieManagementDAO.editMovie(m);
+            setData();
+            JOptionPane.showMessageDialog(jd_edit,"Movie has been editted!", "Editting successfully", JOptionPane.PLAIN_MESSAGE);
+            jd_edit.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_edit,"Systax Error! Please enter again.", "Editting Error", JOptionPane.PLAIN_MESSAGE);
+        }
+    }
 }

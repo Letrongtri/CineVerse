@@ -12,7 +12,7 @@ public class DatabaseConnection {
         Connection conn = null;
         
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cineverse", "root", "QgcZ&7dh");
             
         } catch (Exception e) {

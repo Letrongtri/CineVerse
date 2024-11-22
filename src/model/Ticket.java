@@ -15,29 +15,32 @@ import java.util.Objects;
 public class Ticket {
     private String tid;
     private Customer customer;
-    private Schedule schedule;
+    private Schedule_model schedule;
     private LocalDateTime time;
     private String pay_method;
     private Seat seat;
+    private int total;
     private boolean status;
 
     public Ticket() {
         this.tid = new String();
         this.customer = new Customer();
-        this.schedule = new Schedule();
+        this.schedule = new Schedule_model();
         this.time = LocalDateTime.of(2000, 1, 1, 0, 0);
         this.pay_method = new String();
         this.seat = new Seat();
+        this.total = 0;
         this.status = false;
     }
 
-    public Ticket(String tid, Customer customer, Schedule schedule, LocalDateTime time, String pay_method, Seat seat, boolean status) {
+    public Ticket(String tid, Customer customer, Schedule_model schedule, LocalDateTime time, String pay_method, Seat seat, int total , boolean status) {
         this.tid = tid;
         this.customer = customer;
         this.schedule = schedule;
         this.time = time;
         this.pay_method = pay_method;
         this.seat = seat;
+        this.total = total;
         this.status = status;
     }
 
@@ -49,7 +52,7 @@ public class Ticket {
         return customer;
     }
 
-    public Schedule getSchedule() {
+    public Schedule_model getSchedule() {
         return schedule;
     }
 
@@ -77,7 +80,7 @@ public class Ticket {
         this.customer = customer;
     }
 
-    public void setSchedule(Schedule schedule) {
+    public void setSchedule(Schedule_model schedule) {
         this.schedule = schedule;
     }
 
@@ -95,6 +98,14 @@ public class Ticket {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     @Override
