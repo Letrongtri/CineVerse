@@ -25,7 +25,6 @@ public class test extends javax.swing.JFrame {
         btn_Find1 = new javax.swing.JButton();
         btn_menu = new javax.swing.JLabel();
         contentPanel = new javax.swing.JPanel();
-        screenRoomManagementPanel1 = new view.ScreenRoomManagementPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CinéVerse");
@@ -107,21 +106,11 @@ public class test extends javax.swing.JFrame {
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1420, Short.MAX_VALUE)
-            .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(contentPanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(screenRoomManagementPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGap(0, 1370, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 690, Short.MAX_VALUE)
-            .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(contentPanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(screenRoomManagementPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(contentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1370, 690));
@@ -181,7 +170,6 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JPanel contentPanel;
     private javax.swing.JPanel header;
     private javax.swing.JLabel logo;
-    private view.ScreenRoomManagementPanel screenRoomManagementPanel1;
     private javax.swing.JTextField tf_Find;
     // End of variables declaration//GEN-END:variables
 }
